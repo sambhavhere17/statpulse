@@ -15,7 +15,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const project = projects.find((item) => item.slug === slug);
-  return project ? { title: project.title, description: project.problem } : { title: "Demo Project" };
+  return project ? { title: project.title, description: project.problem, alternates: { canonical: "/portfolio/" + slug } } : { title: "Demo Project" };
 }
 
 export default async function PortfolioCaseStudy({ params }: PageProps) {
