@@ -1,0 +1,376 @@
+import Link from "next/link";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  Check,
+  CircleHelp,
+  FileSpreadsheet,
+} from "lucide-react";
+import { Accordion } from "@/components/ui/accordion";
+import { RevenueChart, CategoryChart, TargetBars } from "@/components/charts/analytics-charts";
+import { ButtonLink } from "@/components/ui/button-link";
+import { CheckList, IconTile } from "@/components/ui/icon-tile";
+import { SectionHeader } from "@/components/ui/section-header";
+import { siteConfig, pricingFootnote } from "@/config/site";
+import { industries } from "@/content/industries";
+import { projects } from "@/content/projects";
+import { demoData } from "@/data/demo";
+
+const features = [
+  { icon: "Lightbulb", title: "Actionable Business Insights", text: "Make the next decision with a clearer view." },
+  { icon: "Workflow", title: "Automated Reporting", text: "Spend less time rebuilding recurring reports." },
+  { icon: "Target", title: "KPI-Driven Decisions", text: "Focus on the measures that matter to your goals." },
+  { icon: "TrendingUp", title: "Built for Growing Businesses", text: "Start with a practical scope and extend it as needed." },
+];
+
+const benefits = [
+  ["Less Manual Reporting", "Save time and reduce repetitive work."],
+  ["Clearer Business Visibility", "Understand performance at a glance."],
+  ["Smarter Decisions", "Identify opportunities and act with confidence."],
+  ["Consistent KPI Tracking", "Monitor the metrics that matter most."],
+];
+
+const matrixProducts = [
+  {
+    title: "Department Result Matrix",
+    copy: "Compare agreed KPIs across departments with a clear, consistent view.",
+    service: "business-dashboard",
+  },
+  {
+    title: "Team Productivity Matrix",
+    copy: "Review illustrative team output and workload measures in one place.",
+    service: "business-dashboard",
+  },
+  {
+    title: "Organization Result Matrix",
+    copy: "Bring cross-functional performance indicators into an executive summary.",
+    service: "business-dashboard",
+  },
+];
+
+const steps = [
+  ["Discover", "Understand the business problem, goals, and data sources."],
+  ["Analyze", "Clean, organize, and analyze available data."],
+  ["Visualize", "Build dashboards, reports, and KPI tracking solutions."],
+  ["Optimize", "Explain findings and identify practical next steps."],
+];
+
+function DemoBadge() {
+  return <span className="demo-badge"><span /> Demo Data</span>;
+}
+
+function KpiCard({ item }: { item: (typeof demoData.kpis)[number] }) {
+  return (
+    <div className="kpi-card">
+      <span className="kpi-label">{item.label}</span>
+      <strong>{item.value}</strong>
+      <span className="kpi-change"><ArrowUpRight aria-hidden="true" size={14} />{item.change} <small>illustrative</small></span>
+    </div>
+  );
+}
+
+function MiniMatrix({ seed }: { seed: number }) {
+  return (
+    <div aria-label="Illustrative sample matrix using synthetic values" className="matrix-preview" role="img">
+      {Array.from({ length: 24 }, (_, index) => {
+        const level = (index * 7 + seed * 5) % 5;
+        return <span className={"matrix-cell matrix-cell--" + level} key={index} />;
+      })}
+    </div>
+  );
+}
+
+export function HomePage() {
+  return (
+    <>
+      <section className="hero-section">
+        <div className="container-site hero-grid">
+          <div className="hero-copy">
+            <p className="eyebrow"><span className="eyebrow-mark" /> STATPULSE ANALYTICS</p>
+            <h1>Turn Your Business Data Into Your Next <span>Competitive Advantage.</span></h1>
+            <p className="hero-description">
+              From automated reporting to intelligent dashboards, StatPulse Analytics
+              helps businesses uncover insights, track performance, and make smarter
+              decisions with confidence.
+            </p>
+            <div className="hero-actions">
+              <ButtonLink arrow href="/book">Book a Free Consultation</ButtonLink>
+              <ButtonLink href="/services" variant="secondary">Explore Our Services</ButtonLink>
+            </div>
+            <div className="hero-features">
+              {features.map((feature) => (
+                <div className="hero-feature" key={feature.title}>
+                  <IconTile name={feature.icon} size={19} />
+                  <div><strong>{feature.title}</strong><span>{feature.text}</span></div>
+                </div>
+              ))}
+            </div>
+            <div className="hero-pills">
+              {["Power BI + Excel", "Clear Project Scope", "Free Discovery Consultation"].map((pill) => (
+                <span className="pill" key={pill}><Check aria-hidden="true" size={14} />{pill}</span>
+              ))}
+            </div>
+          </div>
+
+          <div className="business-card">
+            <div className="business-card-heading">
+              <div><p className="card-kicker">BUSINESS OVERVIEW</p><h2>Performance at a glance</h2></div>
+              <DemoBadge />
+            </div>
+            <div className="kpi-grid">
+              {demoData.kpis.map((item) => <KpiCard item={item} key={item.label} />)}
+            </div>
+            <div className="business-chart-grid">
+              <div className="business-chart-panel">
+                <div className="mini-panel-heading"><h3>Revenue Trend</h3><span>Feb – Aug</span></div>
+                <RevenueChart compact />
+              </div>
+              <div className="business-chart-panel">
+                <div className="mini-panel-heading"><h3>Sales by Category</h3><span>Mix</span></div>
+                <CategoryChart compact />
+              </div>
+            </div>
+            <div className="target-panel">
+              <div className="mini-panel-heading"><h3>Target vs Actual</h3><span>Illustrative</span></div>
+              <TargetBars />
+            </div>
+            <p className="synthetic-note">Demo Data · Synthetic figures for illustration only</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="section section-white" id="industries">
+        <div className="container-site">
+          <SectionHeader
+            align="center"
+            description="Clear reporting for teams that need to understand what is happening and decide what to do next."
+            eyebrow="WHO WE HELP"
+            title="Analytics for the way your business works"
+          />
+          <div className="industry-grid">
+            {industries.map((industry) => (
+              <article className="industry-card" key={industry.slug}>
+                <IconTile name={industry.icon} />
+                <h3>{industry.name}</h3>
+                <p>{industry.description}</p>
+                <Link className="card-link" href={"/solutions/" + industry.slug}>
+                  View Solution <ArrowRight aria-hidden="true" size={16} />
+                </Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section section-cream">
+        <div className="container-site why-grid">
+          <div>
+            <SectionHeader
+              eyebrow="WHY STATPULSE"
+              title="Your Data Has Answers. Let’s Find Them."
+              description="Business data often sits in spreadsheets, sales platforms, and operational systems. StatPulse brings it together into understandable reports and actionable insights."
+            />
+            <div className="benefit-grid">
+              {benefits.map(([title, description], index) => (
+                <article className="benefit-card" key={title}>
+                  <span className="benefit-index">0{index + 1}</span>
+                  <h3>{title}</h3>
+                  <p>{description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+          <div className="snapshot-card">
+            <div className="business-card-heading">
+              <div><p className="card-kicker">PERFORMANCE SNAPSHOT</p><h3>Illustrative business view</h3></div>
+              <DemoBadge />
+            </div>
+            <div className="snapshot-main-chart">
+              <div className="mini-panel-heading"><h3>Revenue trend</h3><span>Jan – Aug</span></div>
+              <RevenueChart compact />
+            </div>
+            <div className="snapshot-bottom">
+              <div className="snapshot-chart-card">
+                <div className="mini-panel-heading"><h3>Sales mix</h3><span>Synthetic</span></div>
+                <CategoryChart compact />
+              </div>
+              <div className="snapshot-chart-card">
+                <div className="mini-panel-heading"><h3>Weekly orders</h3><span>0–320</span></div>
+                <div className="weekly-labels"><span>Wk 2</span><span>Wk 4</span><span>Wk 6</span></div>
+                <div className="mini-bars" aria-label="Illustrative weekly orders, synthetic data" role="img">
+                  {[48, 63, 56, 79, 70, 92].map((height, index) => <span key={index} style={{ height: height + "%" }} />)}
+                </div>
+              </div>
+            </div>
+            <p className="synthetic-note">Demo Data · Synthetic figures for illustration only</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="section section-white">
+        <div className="container-site">
+          <SectionHeader
+            align="center"
+            description="Choose a practical way to make team, department, and organization performance easier to review."
+            eyebrow="DASHBOARDS WE BUILD"
+            title="A clearer view at every level"
+          />
+          <div className="matrix-grid">
+            {matrixProducts.map((product, index) => (
+              <article className="matrix-card" key={product.title}>
+                <div className="matrix-card-heading">
+                  <IconTile name={["ClipboardCheck", "Gauge", "PackageCheck"][index]} />
+                  <span className="illustrative-label">Illustrative sample</span>
+                </div>
+                <h3>{product.title}</h3>
+                <p>{product.copy}</p>
+                <MiniMatrix seed={index + 1} />
+                <p className="matrix-caption">Sample matrix · Synthetic values</p>
+                <ButtonLink arrow href={"/contact?service=" + product.service} variant="secondary">
+                  Discuss Your Requirements
+                </ButtonLink>
+              </article>
+            ))}
+          </div>
+          <p className="tools-note"><FileSpreadsheet aria-hidden="true" size={17} /> Looker Studio reports can be built on Google Sheets and shared or embedded on your website. We can also build in Power BI and Excel.</p>
+        </div>
+      </section>
+
+      <section className="section section-charcoal">
+        <div className="container-site">
+          <SectionHeader
+            align="center"
+            description="Purpose-built dashboards and reporting for the way your business actually operates."
+            eyebrow="SOLUTIONS"
+            title="Analytics solutions for growing businesses"
+          />
+          <div className="solution-grid">
+            {industries.map((industry) => (
+              <article className="solution-card" key={industry.slug}>
+                <IconTile name={industry.icon} variant="charcoal" />
+                <h3>{industry.name}</h3>
+                <p>{industry.description}</p>
+                <CheckList items={industry.bullets} />
+                <Link className="solution-link" href={"/solutions/" + industry.slug}>View Solution <ArrowRight aria-hidden="true" size={16} /></Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section section-white">
+        <div className="container-site">
+          <SectionHeader
+            align="center"
+            description="An open process keeps the work focused on the questions your team needs answered."
+            eyebrow="HOW IT WORKS"
+            title="From raw data to real business insights"
+          />
+          <div className="process-grid">
+            {steps.map(([title, description], index) => (
+              <article className="process-step" key={title}>
+                <span className="process-number">{index + 1}</span>
+                <h3>{title}</h3>
+                <p>{description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section section-cream">
+        <div className="container-site">
+          <SectionHeader
+            align="center"
+            description="Representative demo projects built with synthetic data — the same structure we apply to real client work."
+            eyebrow="PORTFOLIO"
+            title="Demonstrating the power of data"
+          />
+          <div className="project-grid">
+            {projects.slice(0, 3).map((project, index) => (
+              <article className="project-card" key={project.slug}>
+                <div className={"project-preview project-preview--" + project.accent}>
+                  <div className="project-preview-top"><span>Demo Project — Synthetic Data</span><ArrowUpRight aria-hidden="true" size={16} /></div>
+                  {index === 0 ? <RevenueChart compact /> : <ProjectBars seed={index + 2} />}
+                </div>
+                <div className="project-card-body">
+                  <span className="project-category">{project.category}</span>
+                  <h3>{project.title}</h3>
+                  <p><strong>Problem</strong> {project.problem}</p>
+                  <p><strong>Approach</strong> {project.approach}</p>
+                  <CheckList items={project.insights} />
+                  <Link className="card-link" href={"/portfolio/" + project.slug}>View Case Study <ArrowRight aria-hidden="true" size={16} /></Link>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section section-white" id="pricing">
+        <div className="container-site">
+          <SectionHeader
+            align="center"
+            description="Start with a health check, build a focused dashboard, or partner month to month."
+            eyebrow="SERVICES & PRICING"
+            title="Clear packages, honest pricing"
+          />
+          <div className="pricing-grid">
+            {siteConfig.packages.map((service) => (
+              <article className={("popular" in service && service.popular) ? "price-card price-card--popular" : "price-card"} key={service.slug}>
+                {("popular" in service && service.popular) && <span className="popular-badge">MOST POPULAR</span>}
+                <h3>{service.name}</h3>
+                <p className="price-description">{service.description}</p>
+                <div className="price"><strong>{service.price}</strong><span>{service.cadence}</span></div>
+                <CheckList items={service.deliverables} />
+                <ButtonLink arrow className="price-button" href={"/contact?service=" + service.slug} variant={("popular" in service && service.popular) ? "primary" : "secondary"}>
+                  Get Started
+                </ButtonLink>
+              </article>
+            ))}
+          </div>
+          <p className="pricing-footnote">{pricingFootnote}</p>
+        </div>
+      </section>
+
+      <section className="section section-cream" id="faq">
+        <div className="container-site faq-layout">
+          <div>
+            <SectionHeader
+              eyebrow="FAQ"
+              title="Questions before getting started?"
+              description="A few practical details about services, data, timelines, and working together."
+            />
+            <div className="faq-contact-card">
+              <CircleHelp aria-hidden="true" size={22} />
+              <p>Have a question that is specific to your data or reporting setup?</p>
+              <Link href="/contact">Tell us about it <ArrowRight aria-hidden="true" size={15} /></Link>
+            </div>
+          </div>
+          <Accordion items={siteConfig.faq} />
+        </div>
+      </section>
+
+      <section className="cta-band">
+        <div className="container-site cta-band-inner">
+          <div><p className="eyebrow eyebrow--dark">READY WHEN YOU ARE</p><h2>Ready to Make Your Data Work Harder?</h2><p>Tell us about your business challenges. We’ll help you explore a practical analytics solution.</p></div>
+          <div className="cta-band-actions">
+            <ButtonLink arrow href="/book" variant="dark">Book a Free Consultation</ButtonLink>
+            <ButtonLink href="/contact" variant="orange-outline">Discuss Your Project</ButtonLink>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
+function ProjectBars({ seed }: { seed: number }) {
+  const heights = [56, 82, 66, 91, 74, 62, 88, 71];
+  return (
+    <div aria-label="Illustrative chart with synthetic values" className="project-bars" role="img">
+      {heights.map((height, index) => (
+        <span key={index} style={{ height: Math.max(22, height - ((index + seed) % 3) * 7) + "%" }} />
+      ))}
+    </div>
+  );
+}
