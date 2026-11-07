@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const service = services.find((item) => item.slug === slug);
   return service
-    ? { title: service.name, description: service.description }
+    ? { title: service.name, description: service.description, alternates: { canonical: "/services/" + slug } }
     : { title: "Service" };
 }
 
