@@ -1,0 +1,46 @@
+// All metrics and chart values in this file are deterministic synthetic examples.
+export const demoData = {
+  kpis: [
+    { label: "Revenue", value: "₹5.6L", change: "+12.4%", good: true },
+    { label: "Profit margin", value: "38%", change: "+2.1%", good: true },
+    { label: "Orders", value: "1,240", change: "+8.6%", good: true },
+    { label: "Customers", value: "892", change: "+5.3%", good: true },
+  ],
+  revenue: [
+    { month: "Feb", revenue: 3.1, target: 3.4 },
+    { month: "Mar", revenue: 3.8, target: 3.7 },
+    { month: "Apr", revenue: 3.5, target: 3.9 },
+    { month: "May", revenue: 4.7, target: 4.2 },
+    { month: "Jun", revenue: 4.4, target: 4.6 },
+    { month: "Jul", revenue: 5.2, target: 5.0 },
+    { month: "Aug", revenue: 5.6, target: 5.2 },
+  ],
+  yearRevenue: [
+    { month: "Jan", revenue: 2.8, target: 3.0 },
+    { month: "Feb", revenue: 3.1, target: 3.2 },
+    { month: "Mar", revenue: 3.8, target: 3.7 },
+    { month: "Apr", revenue: 3.5, target: 3.9 },
+    { month: "May", revenue: 4.7, target: 4.2 },
+    { month: "Jun", revenue: 4.4, target: 4.6 },
+    { month: "Jul", revenue: 5.2, target: 5.0 },
+    { month: "Aug", revenue: 5.6, target: 5.2 },
+    { month: "Sep", revenue: 5.4, target: 5.5 },
+    { month: "Oct", revenue: 6.1, target: 5.8 },
+    { month: "Nov", revenue: 6.3, target: 6.0 },
+    { month: "Dec", revenue: 6.8, target: 6.4 },
+  ],
+  categories: [
+    { name: "Apparel", value: 38, color: "#FF9500" },
+    { name: "Home", value: 27, color: "#FFB22E" },
+    { name: "Beauty", value: 20, color: "#FFCB5C" },
+    { name: "Other", value: 15, color: "#8A8F98" },
+  ],
+  weeklyOrders: [
+    { week: "Wk 1", orders: 182 },
+    { week: "Wk 2", orders: 216 },
+    { week: "Wk 3", orders: 194 },
+    { week: "Wk 4", orders: 267 },
+    { week: "Wk 5", orders: 238 },
+    { week: "Wk 6", orders: 302 },
+  ],
+} as const;
