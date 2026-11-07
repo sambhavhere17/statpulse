@@ -10,6 +10,7 @@ import { pricingFootnote } from "@/config/site";
 export const metadata: Metadata = {
   title: "Analytics Services",
   description: "Explore dashboard development, data health checks, reporting automation, and ongoing analytics support.",
+  alternates: { canonical: "/services" },
 };
 
 export default function ServicesPage() {
