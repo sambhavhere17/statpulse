@@ -1,0 +1,38 @@
+export const industries = [
+  {
+    slug: "ecommerce",
+    name: "E-commerce & D2C",
+    icon: "ShoppingBag",
+    description: "Sales, returns, product performance, and profitability.",
+    challenges: ["Sales split across storefronts and channels", "Returns and discounts obscure product margins", "Teams rebuild the same reports every week"],
+    kpis: ["Net sales", "Return rate", "Contribution margin", "Channel performance"],
+    bullets: ["Sales and returns analysis", "Product profitability tracking", "Channel performance dashboards"],
+  },
+  {
+    slug: "small-business",
+    name: "Small & Medium Businesses",
+    icon: "BriefcaseBusiness",
+    description: "Business performance, KPI tracking, and monthly reporting.",
+    challenges: ["Important numbers live in separate spreadsheets", "Owners lack a consistent monthly view", "Manual reporting takes time away from operations"],
+    kpis: ["Revenue trend", "Operating costs", "Cash conversion", "KPI completion"],
+    bullets: ["Monthly KPI reporting", "Cash-flow and expense visibility", "Owner-ready performance summaries"],
+  },
+  {
+    slug: "marketing-agencies",
+    name: "Marketing Agencies",
+    icon: "Megaphone",
+    description: "Campaign analytics, lead conversion, and marketing ROI.",
+    challenges: ["Campaign metrics come from multiple ad platforms", "Client updates take repeated manual effort", "Attribution assumptions are hard to compare"],
+    kpis: ["Cost per lead", "Conversion rate", "Campaign spend", "Return on ad spend"],
+    bullets: ["Campaign ROI dashboards", "Lead conversion funnels", "Client-ready automated reports"],
+  },
+  {
+    slug: "manufacturing",
+    name: "Manufacturing & Operations",
+    icon: "Factory",
+    description: "Inventory, procurement, production, and operational KPIs.",
+    challenges: ["Production and inventory reports are disconnected", "Exceptions are found late in the reporting cycle", "Operational performance is difficult to compare"],
+    kpis: ["Production output", "Inventory turns", "On-time delivery", "Procurement variance"],
+    bullets: ["Production output tracking", "Inventory and procurement KPIs", "On-time delivery scorecards"],
+  },
+] as const;
