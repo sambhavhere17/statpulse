@@ -13,7 +13,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const item = industries.find((industry) => industry.slug === slug);
-  return item ? { title: item.name + " Analytics", description: item.description } : { title: "Solution" };
+  return item ? { title: item.name + " Analytics", description: item.description, alternates: { canonical: "/solutions/" + slug } } : { title: "Solution" };
 }
 
 export default async function SolutionPage({ params }: PageProps) {
