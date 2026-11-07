@@ -5,6 +5,7 @@ import { DemoDashboard } from "@/components/dashboard/demo-dashboard";
 export const metadata: Metadata = {
   title: "Dashboard Demo",
   description: "Explore an interactive sample analytics dashboard with deterministic synthetic data.",
+  alternates: { canonical: "/dashboard-demo" },
 };
 
 export default function DashboardDemoPage() {
