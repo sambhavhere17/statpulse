@@ -9,6 +9,7 @@ import { industries } from "@/content/industries";
 export const metadata: Metadata = {
   title: "Analytics Solutions",
   description: "Illustrative KPI and reporting approaches for e-commerce, SMEs, agencies, and operations teams.",
+  alternates: { canonical: "/solutions" },
 };
 
 export default function SolutionsPage() {
