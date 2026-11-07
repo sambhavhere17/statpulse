@@ -36,7 +36,7 @@ export function RevenueChart({
   return (
     <div aria-label="Synthetic revenue trend from February through August" className={compact ? "chart-box chart-box--compact" : "chart-box"} role="img">
       <ResponsiveContainer height="100%" minHeight={compact ? 180 : 250} width="100%">
-        <LineChart data={data} margin={{ top: 12, right: 12, bottom: 0, left: 0 }}>
+        <LineChart data={[...data]} margin={{ top: 12, right: 12, bottom: 0, left: 0 }}>
           <CartesianGrid stroke="#EAE4DC" strokeDasharray="4 5" vertical={false} />
           <XAxis axisLine={false} dataKey="month" tick={axisTick} tickLine={false} />
           <YAxis axisLine={false} domain={[0, 8]} tick={axisTick} tickFormatter={(value: number) => "₹" + value + "L"} tickLine={false} width={46} />
@@ -53,7 +53,7 @@ export function CategoryChart({ compact = false }: { compact?: boolean }) {
     <div aria-label="Synthetic sales mix by category" className={compact ? "chart-box chart-box--donut chart-box--compact" : "chart-box chart-box--donut"} role="img">
       <ResponsiveContainer height="100%" minHeight={compact ? 172 : 210} width="100%">
         <PieChart>
-          <Pie data={demoData.categories} dataKey="value" innerRadius="58%" outerRadius="82%" paddingAngle={3} stroke="none">
+          <Pie data={[...demoData.categories]} dataKey="value" innerRadius="58%" outerRadius="82%" paddingAngle={3} stroke="none">
             {demoData.categories.map((entry) => <Cell fill={entry.color} key={entry.name} />)}
           </Pie>
           <Tooltip contentStyle={tooltipStyle} formatter={(value) => [String(value) + "%", "Sales"]} />
@@ -68,7 +68,7 @@ export function WeeklyOrdersChart() {
   return (
     <div aria-label="Synthetic weekly order counts" className="chart-box chart-box--compact" role="img">
       <ResponsiveContainer height="100%" minHeight={190} width="100%">
-        <BarChart data={demoData.weeklyOrders} margin={{ top: 12, right: 12, bottom: 0, left: 0 }}>
+        <BarChart data={[...demoData.weeklyOrders]} margin={{ top: 12, right: 12, bottom: 0, left: 0 }}>
           <CartesianGrid stroke="#EAE4DC" strokeDasharray="4 5" vertical={false} />
           <XAxis axisLine={false} dataKey="week" tick={axisTick} tickLine={false} />
           <YAxis axisLine={false} domain={[0, 320]} tick={axisTick} tickLine={false} width={35} />
