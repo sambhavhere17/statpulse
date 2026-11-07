@@ -6,6 +6,7 @@ import { siteConfig } from "@/config/site";
 export const metadata: Metadata = {
   title: "Contact",
   description: "Tell StatPulse Analytics about your reporting or dashboard project and request a discovery conversation.",
+  alternates: { canonical: "/contact" },
 };
 
 type ContactPageProps = {
