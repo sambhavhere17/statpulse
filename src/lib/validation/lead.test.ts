@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { hashIp } from "@/lib/rate-limit";
+import { hashIp } from "@/lib/security";
 import { leadSchema } from "@/lib/validation/lead";
 
 const validSubmission = {
