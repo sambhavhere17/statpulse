@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { ArrowRight, LoaderCircle, Send } from "lucide-react";
-import { leadSchema, type LeadFormValues } from "@/lib/validation/lead";
+import { leadSchema, type LeadFormValues, type LeadInput } from "@/lib/validation/lead";
 import { TurnstileWidget } from "@/components/contact/turnstile-widget";
 
 const serviceOptions = [
@@ -26,7 +26,7 @@ export function ContactForm({ defaultService = "" }: ContactFormProps) {
     handleSubmit,
     setError,
     formState: { errors, isSubmitting },
-  } = useForm<LeadFormValues>({
+  } = useForm<LeadFormValues, unknown, LeadInput>({
     resolver: zodResolver(leadSchema),
     defaultValues: {
       name: "",
