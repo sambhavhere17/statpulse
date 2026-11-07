@@ -5,6 +5,7 @@ import { SectionHeader } from "@/components/ui/section-header";
 export const metadata: Metadata = {
   title: "About",
   description: "Learn about StatPulse Analytics' approach to practical dashboards and business reporting.",
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {
