@@ -5,6 +5,7 @@ import { PortfolioFilter } from "@/components/portfolio/portfolio-filter";
 export const metadata: Metadata = {
   title: "Portfolio",
   description: "Illustrative dashboard and reporting demos built with synthetic data.",
+  alternates: { canonical: "/portfolio" },
 };
 
 export default function PortfolioPage() {
