@@ -28,8 +28,9 @@ export function Footer() {
           <div className="footer-brand">
             <Logo variant="dark" />
             <p>
-              StatPulse Analytics turns raw business data into clear dashboards,
-              automated reports, and decisions you can act on — built for growing businesses.
+              We transform business data into actionable intelligence through smart dashboards,
+              AI-powered automation, and strategic analytics — helping businesses optimize costs,
+              improve efficiency, and accelerate growth.
             </p>
             <ButtonLink arrow href="/book" variant="primary">
               Start with a free discovery consultation
