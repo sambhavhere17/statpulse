@@ -321,9 +321,9 @@ svg {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.94fr) minmax(510px, 1.06fr);
+  grid-template-columns: minmax(0, 1.08fr) minmax(520px, 0.92fr);
   align-items: center;
-  gap: clamp(2rem, 5vw, 5.5rem);
+  gap: clamp(2rem, 4vw, 4.5rem);
 }
 
 .hero-copy h1 {
@@ -441,7 +441,10 @@ svg {
 .snapshot-card {
   border: 1px solid var(--orange-border);
   border-radius: 1.45rem;
-  padding: clamp(1.25rem, 2.5vw, 2rem);
+  width: 100%;
+  max-width: 680px;
+  justify-self: end;
+  padding: clamp(1.1rem, 1.8vw, 1.5rem);
   background: linear-gradient(145deg, #ffffff 0%, #fffdfb 100%);
   box-shadow: 0 24px 70px rgba(41, 44, 50, 0.12);
   transition: box-shadow 240ms ease, transform 240ms ease;
@@ -524,18 +527,18 @@ svg {
 .kpi-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.85rem;
-  margin-top: 1.35rem;
+  gap: 0.65rem;
+  margin-top: 1rem;
 }
 
 .kpi-card {
   display: grid;
   position: relative;
   gap: 0.42rem;
-  min-height: 9rem;
+  min-height: 7.4rem;
   border: 1px solid #f0dfcb;
   border-radius: 1rem;
-  padding: 1rem;
+  padding: 0.8rem;
   background: linear-gradient(135deg, #fffaf5 0%, #fff4e8 100%);
   cursor: help;
   transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
@@ -615,16 +618,17 @@ svg {
 .snapshot-bottom {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
-  gap: 1rem;
-  margin-top: 1rem;
+  gap: 0.7rem;
+  margin-top: 0.75rem;
 }
 
 .business-chart-panel,
 .snapshot-chart-card {
   min-width: 0;
+  container-type: inline-size;
   border: 1px solid var(--line-gray);
-  border-radius: 1rem;
-  padding: 1rem;
+  border-radius: 0.85rem;
+  padding: 0.75rem;
   background: var(--white);
   transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
@@ -661,7 +665,7 @@ svg {
 }
 
 .chart-box--compact {
-  min-height: 195px;
+  min-height: 150px;
 }
 
 .chart-box--donut {
@@ -669,7 +673,7 @@ svg {
 }
 
 .chart-box--donut.chart-box--compact {
-  min-height: 172px;
+  min-height: 150px;
 }
 
 .category-chart-layout {
@@ -723,6 +727,35 @@ svg {
   font-size: 0.76rem;
 }
 
+@container (max-width: 340px) {
+  .category-chart-layout--compact {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .category-chart-layout--compact .category-chart-visual {
+    min-height: 142px;
+  }
+
+  .category-chart-layout--compact .category-legend {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 0.4rem;
+    row-gap: 0.4rem;
+    padding: 0 0.1rem 0.2rem;
+  }
+
+  .category-chart-layout--compact .category-legend li {
+    min-width: 0;
+    gap: 0.3rem;
+    font-size: 0.68rem;
+  }
+
+  .category-chart-layout--compact .category-legend strong {
+    padding-left: 0;
+    font-size: 0.7rem;
+  }
+}
+
 .chart-box--interactive .recharts-wrapper {
   cursor: crosshair;
 }
@@ -742,17 +775,17 @@ svg {
 }
 
 .target-panel {
-  margin-top: 1rem;
+  margin-top: 0.75rem;
   border: 1px solid var(--line-gray);
-  border-radius: 1rem;
-  padding: 1rem;
+  border-radius: 0.85rem;
+  padding: 0.75rem;
   transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
 
 .target-list {
   display: grid;
-  gap: 0.8rem;
-  margin-top: 0.7rem;
+  gap: 0.55rem;
+  margin-top: 0.5rem;
 }
 
 .target-row {
@@ -2617,6 +2650,7 @@ svg {
 
   .business-card {
     width: min(100%, 860px);
+    max-width: none;
     margin-inline: auto;
   }
 
