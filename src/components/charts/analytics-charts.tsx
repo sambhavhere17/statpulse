@@ -59,7 +59,7 @@ export function CategoryChart({ compact = false }: { compact?: boolean }) {
               <Pie data={[...demoData.categories]} dataKey="value" innerRadius="58%" outerRadius="82%" paddingAngle={3} stroke="none">
                 {demoData.categories.map((entry) => <Cell fill={entry.color} key={entry.name} />)}
               </Pie>
-              <Tooltip contentStyle={tooltipStyle} formatter={(value) => [String(value) + "%", "Sales"]} />
+          <Tooltip contentStyle={tooltipStyle} itemStyle={{ color: "#fff" }} labelStyle={{ color: "#fff" }} formatter={(value) => [String(value) + "%", "Sales"]} />
               {!compact && <Legend align="center" iconType="circle" layout="horizontal" verticalAlign="bottom" wrapperStyle={{ fontSize: 11 }} />}
             </PieChart>
           </ResponsiveContainer>
