@@ -81,9 +81,9 @@ export function HomePage() {
             <p className="eyebrow hero-eyebrow"><span className="eyebrow-mark" /> STATPULSE ANALYTICS</p>
             <h1>Turn Your Business Data Into Your Next <span>Competitive Advantage.</span></h1>
             <p className="hero-description">
-              From business consulting and KPI framework design to team alignment and workflow automation,
-              we build the systems that help businesses optimize resources, improve workforce productivity,
-              and drive performance through data-backed decisions.
+              From automated reporting to intelligent dashboards, StatPulse Analytics
+              helps businesses uncover insights, track performance, and make smarter
+              decisions with confidence.
             </p>
             <div className="hero-actions">
               <ButtonLink arrow href="/book">Book a Free Consultation</ButtonLink>
