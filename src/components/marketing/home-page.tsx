@@ -93,7 +93,6 @@ export function HomePage() {
       <section className="hero-section">
         <div className="container-site hero-grid">
           <div className="hero-copy">
-            <p className="eyebrow"><span className="eyebrow-mark" /> STATPULSE</p>
             <h1>Turn Your Business Data Into Your Next <span>Competitive Advantage.</span></h1>
             <p className="hero-description">
               From automated reporting to intelligent dashboards, StatPulse Analytics
