@@ -3,7 +3,6 @@ import {
   ArrowRight,
   ArrowUpRight,
   BarChart3,
-  Check,
   CircleHelp,
   FileSpreadsheet,
   FileText,
@@ -125,11 +124,6 @@ export function HomePage() {
               <IconTile name={feature.icon} size={25} />
               <div><h2>{feature.title}</h2><p>{feature.text}</p></div>
             </article>
-          ))}
-        </div>
-        <div className="container-site hero-trust-row">
-          {["Power BI + Excel", "Clear Project Scope", "Free Discovery Consultation"].map((pill) => (
-            <span key={pill}><Check aria-hidden="true" size={15} />{pill}</span>
           ))}
         </div>
       </section>
