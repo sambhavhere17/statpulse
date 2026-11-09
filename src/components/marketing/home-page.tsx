@@ -2,9 +2,13 @@ import Link from "next/link";
 import {
   ArrowRight,
   ArrowUpRight,
+  CircleDollarSign,
   Check,
   CircleHelp,
   FileSpreadsheet,
+  Percent,
+  ShoppingCart,
+  Users,
 } from "lucide-react";
 import { Accordion } from "@/components/ui/accordion";
 import { RevenueChart, CategoryChart, TargetBars } from "@/components/charts/analytics-charts";
@@ -38,7 +42,7 @@ const matrixProducts = [
   },
   {
     title: "Team Productivity Matrix",
-    copy: "Review illustrative team output and workload measures in one place.",
+    copy: "Review team output and workload measures in one place.",
     service: "business-dashboard",
   },
   {
@@ -55,23 +59,26 @@ const steps = [
   ["Optimize", "Explain findings and identify practical next steps."],
 ];
 
-function DemoBadge() {
-  return <span className="demo-badge"><span /> Demo Data</span>;
-}
-
 function KpiCard({ item }: { item: (typeof demoData.kpis)[number] }) {
+  const Icon = {
+    Revenue: CircleDollarSign,
+    "Profit margin": Percent,
+    Orders: ShoppingCart,
+    Customers: Users,
+  }[item.label];
+
   return (
-    <div className="kpi-card">
-      <span className="kpi-label">{item.label}</span>
+    <div className="kpi-card" data-insight={item.label + " increased " + item.change + " compared with the prior period."} tabIndex={0}>
+      <div className="kpi-heading"><Icon aria-hidden="true" size={22} /><span className="kpi-label">{item.label}</span></div>
       <strong>{item.value}</strong>
-      <span className="kpi-change"><ArrowUpRight aria-hidden="true" size={14} />{item.change} <small>illustrative</small></span>
+      <span className="kpi-change"><ArrowUpRight aria-hidden="true" size={14} />{item.change}</span>
     </div>
   );
 }
 
 function MiniMatrix({ seed }: { seed: number }) {
   return (
-    <div aria-label="Illustrative sample matrix using synthetic values" className="matrix-preview" role="img">
+    <div aria-label="Business performance matrix" className="matrix-preview" role="img">
       {Array.from({ length: 24 }, (_, index) => {
         const level = (index * 7 + seed * 5) % 5;
         return <span className={"matrix-cell matrix-cell--" + level} key={index} />;
@@ -86,7 +93,7 @@ export function HomePage() {
       <section className="hero-section">
         <div className="container-site hero-grid">
           <div className="hero-copy">
-            <p className="eyebrow"><span className="eyebrow-mark" /> STATPULSE ANALYTICS</p>
+            <p className="eyebrow"><span className="eyebrow-mark" /> STATPULSE</p>
             <h1>Turn Your Business Data Into Your Next <span>Competitive Advantage.</span></h1>
             <p className="hero-description">
               From automated reporting to intelligent dashboards, StatPulse Analytics
@@ -114,8 +121,7 @@ export function HomePage() {
 
           <div className="business-card">
             <div className="business-card-heading">
-              <div><p className="card-kicker">BUSINESS OVERVIEW</p><h2>Performance at a glance</h2></div>
-              <DemoBadge />
+              <div><p className="card-kicker">BUSINESS OVERVIEW</p><h2>Performance at a glance</h2><span className="dashboard-accent" /></div>
             </div>
             <div className="kpi-grid">
               {demoData.kpis.map((item) => <KpiCard item={item} key={item.label} />)}
@@ -126,15 +132,14 @@ export function HomePage() {
                 <RevenueChart compact />
               </div>
               <div className="business-chart-panel">
-                <div className="mini-panel-heading"><h3>Sales by Category</h3><span>Mix</span></div>
+                <div className="mini-panel-heading"><h3>Sales by Category</h3></div>
                 <CategoryChart compact />
               </div>
             </div>
             <div className="target-panel">
-              <div className="mini-panel-heading"><h3>Target vs Actual</h3><span>Illustrative</span></div>
+              <div className="mini-panel-heading"><h3>Target vs Actual</h3></div>
               <TargetBars />
             </div>
-            <p className="synthetic-note">Demo Data · Synthetic figures for illustration only</p>
           </div>
         </div>
       </section>
@@ -182,8 +187,8 @@ export function HomePage() {
           </div>
           <div className="snapshot-card">
             <div className="business-card-heading">
-              <div><p className="card-kicker">PERFORMANCE SNAPSHOT</p><h3>Illustrative business view</h3></div>
-              <DemoBadge />
+              <div><p className="card-kicker">PERFORMANCE SNAPSHOT</p><h3>Business performance view</h3></div>
+              <span className="dashboard-status">Current period</span>
             </div>
             <div className="snapshot-main-chart">
               <div className="mini-panel-heading"><h3>Revenue trend</h3><span>Jan – Aug</span></div>
@@ -197,12 +202,11 @@ export function HomePage() {
               <div className="snapshot-chart-card">
                 <div className="mini-panel-heading"><h3>Weekly orders</h3><span>0–320</span></div>
                 <div className="weekly-labels"><span>Wk 2</span><span>Wk 4</span><span>Wk 6</span></div>
-                <div className="mini-bars" aria-label="Illustrative weekly orders, synthetic data" role="img">
+                <div className="mini-bars" aria-label="Weekly order volume" role="img">
                   {[48, 63, 56, 79, 70, 92].map((height, index) => <span key={index} style={{ height: height + "%" }} />)}
                 </div>
               </div>
             </div>
-            <p className="synthetic-note">Demo Data · Synthetic figures for illustration only</p>
           </div>
         </div>
       </section>
@@ -220,12 +224,12 @@ export function HomePage() {
               <article className="matrix-card" key={product.title}>
                 <div className="matrix-card-heading">
                   <IconTile name={["ClipboardCheck", "Gauge", "PackageCheck"][index]} />
-                  <span className="illustrative-label">Illustrative sample</span>
+                  <span className="matrix-note">Reporting template</span>
                 </div>
                 <h3>{product.title}</h3>
                 <p>{product.copy}</p>
                 <MiniMatrix seed={index + 1} />
-                <p className="matrix-caption">Sample matrix · Synthetic values</p>
+                <p className="matrix-caption">Performance matrix</p>
                 <ButtonLink arrow href={"/contact?service=" + product.service} variant="secondary">
                   Discuss Your Requirements
                 </ButtonLink>
@@ -367,7 +371,7 @@ export function HomePage() {
 function ProjectBars({ seed }: { seed: number }) {
   const heights = [56, 82, 66, 91, 74, 62, 88, 71];
   return (
-    <div aria-label="Illustrative chart with synthetic values" className="project-bars" role="img">
+    <div aria-label="Business performance chart" className="project-bars" role="img">
       {heights.map((height, index) => (
         <span key={index} style={{ height: Math.max(22, height - ((index + seed) % 3) * 7) + "%" }} />
       ))}
