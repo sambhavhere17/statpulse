@@ -321,7 +321,7 @@ svg {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(520px, 0.92fr);
+  grid-template-columns: minmax(0, 1fr) minmax(600px, 1fr);
   align-items: center;
   gap: clamp(2rem, 4vw, 4.5rem);
 }
@@ -442,7 +442,7 @@ svg {
   border: 1px solid var(--orange-border);
   border-radius: 1.45rem;
   width: 100%;
-  max-width: 680px;
+  max-width: 760px;
   justify-self: end;
   padding: clamp(1.1rem, 1.8vw, 1.5rem);
   background: linear-gradient(145deg, #ffffff 0%, #fffdfb 100%);
@@ -535,7 +535,7 @@ svg {
   display: grid;
   position: relative;
   gap: 0.42rem;
-  min-height: 7.4rem;
+  min-height: 7rem;
   border: 1px solid #f0dfcb;
   border-radius: 1rem;
   padding: 0.8rem;
@@ -665,7 +665,7 @@ svg {
 }
 
 .chart-box--compact {
-  min-height: 150px;
+  min-height: 140px;
 }
 
 .chart-box--donut {
@@ -673,7 +673,7 @@ svg {
 }
 
 .chart-box--donut.chart-box--compact {
-  min-height: 150px;
+  min-height: 140px;
 }
 
 .category-chart-layout {
@@ -727,7 +727,7 @@ svg {
   font-size: 0.76rem;
 }
 
-@container (max-width: 340px) {
+@container (max-width: 300px) {
   .category-chart-layout--compact {
     grid-template-columns: 1fr;
     gap: 0.25rem;
