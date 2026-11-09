@@ -18,13 +18,13 @@ import {
 import { BarChart3, ShoppingCart, Users } from "lucide-react";
 import { demoData } from "@/data/demo";
 
-const axisTick = { fill: "#777C84", fontSize: 11 };
+const axisTick = { fill: "#777C84", fontSize: 12 };
 const tooltipStyle = {
   background: "#292C32",
   border: "1px solid #4A4F58",
   borderRadius: 8,
   color: "#fff",
-  fontSize: 12,
+  fontSize: 13,
 };
 
 export function RevenueChart({
@@ -40,7 +40,7 @@ export function RevenueChart({
         <LineChart data={[...data]} margin={{ top: 12, right: 12, bottom: 0, left: 0 }}>
           <CartesianGrid stroke="#EAE4DC" strokeDasharray="4 5" vertical={false} />
           <XAxis axisLine={false} dataKey="month" tick={axisTick} tickLine={false} />
-          <YAxis axisLine={false} domain={[0, 8]} tick={axisTick} tickFormatter={(value: number) => "₹" + value + "L"} tickLine={false} width={46} />
+          <YAxis axisLine={false} domain={[0, 8]} tick={axisTick} tickFormatter={(value: number) => "₹" + value + "L"} tickLine={false} width={52} />
           <Tooltip contentStyle={tooltipStyle} cursor={{ stroke: "#FF9500", strokeDasharray: "4 4" }} formatter={(value) => ["₹" + value + "L", "Revenue"]} labelFormatter={(label) => label + " performance"} />
           <Line activeDot={{ r: 7, fill: "#fff", stroke: "#FF9500", strokeWidth: 3 }} dataKey="revenue" dot={{ r: 3, fill: "#FF9500", strokeWidth: 0 }} name="Revenue" stroke="#FF9500" strokeWidth={3} type="monotone" />
         </LineChart>
