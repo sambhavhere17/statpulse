@@ -50,7 +50,6 @@ export function Footer() {
         </div>
         <div className="footer-bottom">
           <span>© {copyrightYears} {siteConfig.name}. All rights reserved.</span>
-          <span>All dashboard figures on this site are synthetic demo data.</span>
           {siteConfig.linkedInUrl ? (
             <a href={siteConfig.linkedInUrl} rel="noreferrer" target="_blank">
               LinkedIn <ArrowUpRight aria-hidden="true" size={14} />
