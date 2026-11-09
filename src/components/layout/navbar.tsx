@@ -30,7 +30,7 @@ export function Navbar() {
           ))}
         </nav>
         <ButtonLink arrow className="nav-cta" href="/book">
-          Book a Free Consultation
+          Book a Consultation
         </ButtonLink>
         <button
           aria-expanded={isOpen}
