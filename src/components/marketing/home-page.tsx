@@ -2,23 +2,26 @@ import Link from "next/link";
 import {
   ArrowRight,
   ArrowUpRight,
-  CircleDollarSign,
+  BarChart3,
   Check,
   CircleHelp,
   FileSpreadsheet,
-  Percent,
-  ShoppingCart,
+  FileText,
+  Gauge,
+  House,
+  Settings,
+  TrendingUp,
   Users,
+  Workflow,
 } from "lucide-react";
 import { Accordion } from "@/components/ui/accordion";
-import { RevenueChart, CategoryChart, TargetBars } from "@/components/charts/analytics-charts";
+import { RevenueChart, CategoryChart } from "@/components/charts/analytics-charts";
 import { ButtonLink } from "@/components/ui/button-link";
 import { CheckList, IconTile } from "@/components/ui/icon-tile";
 import { SectionHeader } from "@/components/ui/section-header";
 import { siteConfig, pricingFootnote } from "@/config/site";
 import { industries } from "@/content/industries";
 import { projects } from "@/content/projects";
-import { demoData } from "@/data/demo";
 
 const features = [
   { icon: "Lightbulb", title: "Actionable Business Insights", text: "Make the next decision with a clearer view." },
@@ -59,23 +62,6 @@ const steps = [
   ["Optimize", "Explain findings and identify practical next steps."],
 ];
 
-function KpiCard({ item }: { item: (typeof demoData.kpis)[number] }) {
-  const Icon = {
-    Revenue: CircleDollarSign,
-    "Profit margin": Percent,
-    Orders: ShoppingCart,
-    Customers: Users,
-  }[item.label];
-
-  return (
-    <div className="kpi-card" data-insight={item.label + " increased " + item.change + " compared with the prior period."} tabIndex={0}>
-      <div className="kpi-heading"><Icon aria-hidden="true" size={22} /><span className="kpi-label">{item.label}</span></div>
-      <strong>{item.value}</strong>
-      <span className="kpi-change"><ArrowUpRight aria-hidden="true" size={14} />{item.change}</span>
-    </div>
-  );
-}
-
 function MiniMatrix({ seed }: { seed: number }) {
   return (
     <div aria-label="Business performance matrix" className="matrix-preview" role="img">
@@ -90,9 +76,10 @@ function MiniMatrix({ seed }: { seed: number }) {
 export function HomePage() {
   return (
     <>
-      <section className="hero-section">
-        <div className="container-site hero-grid">
+      <section className="hero-section hero-section--showcase">
+        <div className="container-site hero-grid hero-grid--showcase">
           <div className="hero-copy">
+            <p className="eyebrow hero-eyebrow"><span className="eyebrow-mark" /> STATPULSE ANALYTICS</p>
             <h1>Turn Your Business Data Into Your Next <span>Competitive Advantage.</span></h1>
             <p className="hero-description">
               From automated reporting to intelligent dashboards, StatPulse Analytics
@@ -101,45 +88,49 @@ export function HomePage() {
             </p>
             <div className="hero-actions">
               <ButtonLink arrow href="/book">Book a Free Consultation</ButtonLink>
-              <ButtonLink href="/services" variant="secondary">Explore Our Services</ButtonLink>
-            </div>
-            <div className="hero-features">
-              {features.map((feature) => (
-                <div className="hero-feature" key={feature.title}>
-                  <IconTile name={feature.icon} size={19} />
-                  <div><strong>{feature.title}</strong><span>{feature.text}</span></div>
-                </div>
-              ))}
-            </div>
-            <div className="hero-pills">
-              {["Power BI + Excel", "Clear Project Scope", "Free Discovery Consultation"].map((pill) => (
-                <span className="pill" key={pill}><Check aria-hidden="true" size={14} />{pill}</span>
-              ))}
+              <ButtonLink href="/services" variant="secondary">Explore Our Services <ArrowRight aria-hidden="true" size={16} /></ButtonLink>
             </div>
           </div>
 
-          <div className="business-card">
-            <div className="business-card-heading">
-              <div><p className="card-kicker">BUSINESS OVERVIEW</p><h2>Performance at a glance</h2><span className="dashboard-accent" /></div>
+          <div className="showcase-dashboard" aria-label="Business performance dashboard" role="region">
+            <div className="showcase-dashboard-topbar">
+              <div className="showcase-brand"><BarChart3 aria-hidden="true" size={24} /><strong>StatPulse</strong></div>
+              <div className="showcase-controls"><span>Last 30 Days</span><span className="showcase-avatar">SJ</span></div>
             </div>
-            <div className="kpi-grid">
-              {demoData.kpis.map((item) => <KpiCard item={item} key={item.label} />)}
-            </div>
-            <div className="business-chart-grid">
-              <div className="business-chart-panel">
-                <div className="mini-panel-heading"><h3>Revenue Trend</h3><span>Feb – Aug</span></div>
-                <RevenueChart compact />
+            <div className="showcase-dashboard-body">
+              <nav aria-label="Dashboard navigation" className="showcase-dashboard-nav">
+                <span className="is-active"><House aria-hidden="true" size={17} />Dashboard</span>
+                <span><FileText aria-hidden="true" size={17} />Reports</span>
+                <span><BarChart3 aria-hidden="true" size={17} />KPIs</span>
+                <span><Workflow aria-hidden="true" size={17} />Automation</span>
+                <span><Settings aria-hidden="true" size={17} />Settings</span>
+              </nav>
+              <div className="showcase-dashboard-main">
+                <div className="showcase-kpis">
+                  <article><TrendingUp aria-hidden="true" size={23} /><span>Revenue</span><strong>₹24.8L</strong><em>↑ +12.5%</em></article>
+                  <article><Users aria-hidden="true" size={23} /><span>Team Productivity</span><strong>92%</strong><em>↑ +8.3%</em></article>
+                  <article><Gauge aria-hidden="true" size={23} /><span>Goals Achieved</span><strong>98%</strong><em>↑ +6.1%</em></article>
+                </div>
+                <div className="showcase-chart-layout">
+                  <div className="showcase-chart-card"><h2>Business Performance</h2><RevenueChart compact /></div>
+                  <div className="showcase-chart-card showcase-chart-card--department"><h2>Department Performance</h2><CategoryChart compact /></div>
+                </div>
               </div>
-              <div className="business-chart-panel">
-                <div className="mini-panel-heading"><h3>Sales by Category</h3></div>
-                <CategoryChart compact />
-              </div>
-            </div>
-            <div className="target-panel">
-              <div className="mini-panel-heading"><h3>Target vs Actual</h3></div>
-              <TargetBars />
             </div>
           </div>
+        </div>
+        <div className="container-site hero-feature-strip">
+          {features.map((feature) => (
+            <article className="hero-feature-card" key={feature.title}>
+              <IconTile name={feature.icon} size={25} />
+              <div><h2>{feature.title}</h2><p>{feature.text}</p></div>
+            </article>
+          ))}
+        </div>
+        <div className="container-site hero-trust-row">
+          {["Power BI + Excel", "Clear Project Scope", "Free Discovery Consultation"].map((pill) => (
+            <span key={pill}><Check aria-hidden="true" size={15} />{pill}</span>
+          ))}
         </div>
       </section>
 
