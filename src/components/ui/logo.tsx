@@ -9,7 +9,7 @@ type LogoProps = {
 export function Logo({ variant = "dark", href = "/", className = "" }: LogoProps) {
   return (
     <Link
-      aria-label="StatPulse Analytics home"
+      aria-label="StatPulse home"
       className={"brand-lockup brand-lockup--" + variant + " " + className}
       href={href}
     >
@@ -21,7 +21,6 @@ export function Logo({ variant = "dark", href = "/", className = "" }: LogoProps
       </svg>
       <span className="brand-words">
         <span className="brand-name">StatPulse</span>
-        <span className="brand-subtitle">ANALYTICS</span>
       </span>
     </Link>
   );
