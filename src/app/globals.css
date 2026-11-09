@@ -148,16 +148,16 @@ svg {
 }
 
 .nav-inner {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   height: 100%;
   align-items: center;
-  justify-content: space-between;
-  gap: 1.4rem;
+  gap: clamp(1rem, 2vw, 2rem);
 }
 
 .nav-links {
   display: flex;
-  flex: 1;
+  min-width: 0;
   align-items: center;
   justify-content: center;
   gap: clamp(0.9rem, 2vw, 1.8rem);
@@ -181,7 +181,6 @@ svg {
   font-size: 0.78rem;
 }
 
-.nav-cta--mobile,
 .menu-toggle {
   display: none;
 }
@@ -2470,7 +2469,11 @@ svg {
     height: 60px;
   }
 
-  .nav-cta--desktop {
+  .nav-inner {
+    grid-template-columns: 1fr auto;
+  }
+
+  .nav-cta {
     display: none;
   }
 
@@ -2506,11 +2509,6 @@ svg {
     border-bottom: 1px solid #444850;
     padding: 0.65rem 0.2rem;
     font-size: 0.9rem;
-  }
-
-  .nav-cta--mobile {
-    display: inline-flex;
-    margin-top: 0.5rem;
   }
 
   .hero-section {
