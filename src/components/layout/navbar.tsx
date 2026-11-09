@@ -28,11 +28,8 @@ export function Navbar() {
               {item.label}
             </Link>
           ))}
-          <ButtonLink arrow className="nav-cta nav-cta--mobile" href="/book">
-            Book a Free Consultation
-          </ButtonLink>
         </nav>
-        <ButtonLink arrow className="nav-cta nav-cta--desktop" href="/book">
+        <ButtonLink arrow className="nav-cta" href="/book">
           Book a Free Consultation
         </ButtonLink>
         <button
