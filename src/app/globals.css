@@ -1334,37 +1334,15 @@ svg {
   transition: transform 160ms ease, box-shadow 160ms ease;
 }
 
-.matrix-preview {
-  overflow: hidden;
+.matrix-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
   margin-top: 1.25rem;
   border: 1px solid #efdcc9;
   border-radius: 0.7rem;
-  background: #fffdfa;
+  object-fit: cover;
 }
-
-.matrix-table-head,
-.matrix-table-row {
-  display: grid;
-  grid-template-columns: 1.25fr .8fr .8fr .7fr;
-  align-items: center;
-  gap: 0.35rem;
-  padding: 0.52rem 0.65rem;
-  font-size: 0.69rem;
-}
-
-.matrix-table-head {
-  background: linear-gradient(90deg, #ffd394, #ffbd65);
-  color: #3e210d;
-  font-weight: 800;
-}
-
-.matrix-table-row { border-top: 1px solid #f1e4d7; color: #4c5560; }
-.matrix-table-row > span:first-child { color: var(--charcoal); font-weight: 700; }
-.matrix-table-row strong { padding: 0.2rem; border-radius: 0.25rem; text-align: center; color: #173c19; font-size: 0.67rem; }
-.matrix-table-row .is-on-track { background: #daf4c9; }
-.matrix-table-row .is-watch { background: #ffe7a7; color: #815600; }
-.matrix-score-chart { display: flex; height: 4.1rem; align-items: end; gap: 0.45rem; padding: 0.65rem; border-top: 1px solid #f1e4d7; background: #fff8f1; }
-.matrix-score-chart span { display: block; flex: 1; max-width: 2.3rem; border-radius: 0.22rem 0.22rem 0 0; background: linear-gradient(#ffb340, #ed7d00); }
 
 .matrix-card .button {
   margin-top: 1rem;
