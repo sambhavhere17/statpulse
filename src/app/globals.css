@@ -1365,7 +1365,6 @@ svg {
 .matrix-table-row .is-watch { background: #ffe7a7; color: #815600; }
 .matrix-score-chart { display: flex; height: 4.1rem; align-items: end; gap: 0.45rem; padding: 0.65rem; border-top: 1px solid #f1e4d7; background: #fff8f1; }
 .matrix-score-chart span { display: block; flex: 1; max-width: 2.3rem; border-radius: 0.22rem 0.22rem 0 0; background: linear-gradient(#ffb340, #ed7d00); }
-}
 
 .matrix-card .button {
   margin-top: 1rem;
