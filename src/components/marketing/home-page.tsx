@@ -21,7 +21,6 @@ import { SectionHeader } from "@/components/ui/section-header";
 import { siteConfig, pricingFootnote } from "@/config/site";
 import { industries } from "@/content/industries";
 import { projects } from "@/content/projects";
-import { TechStackStrip } from "@/components/marketing/tech-stack-strip";
 import { RoiCalculator } from "@/components/marketing/roi-calculator";
 
 const features = [
@@ -129,8 +128,6 @@ export function HomePage() {
           ))}
         </div>
       </section>
-
-      <TechStackStrip />
 
       <section className="section section-white" id="industries">
         <div className="container-site">
