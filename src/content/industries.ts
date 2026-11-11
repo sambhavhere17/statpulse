@@ -33,7 +33,7 @@ export const industries = [
     slug: "manufacturing",
     name: "Manufacturing & Operations",
     icon: "Factory",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=700&q=80",
+    image: "/images/manufacturing-analytics.png",
     description: "Inventory, procurement, production, and operational KPIs.",
     challenges: ["Production and inventory reports are disconnected", "Exceptions are found late in the reporting cycle", "Operational performance is difficult to compare"],
     kpis: ["Production output", "Inventory turns", "On-time delivery", "Procurement variance"],
