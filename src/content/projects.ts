@@ -29,6 +29,26 @@ export const projects = [
     insights: ["Compare spend by channel", "Follow leads through conversion", "Review cost-per-lead trends"],
     accent: "cream",
   },
+  {
+    slug: "subscription-retention-churn-engine",
+    title: "Subscription Retention & Churn Analytics",
+    category: "Automation",
+    tools: ["Power BI", "Excel"],
+    problem: "Illustrative scenario: a recurring revenue business lacks visibility into cohort churn, upgrades, and MRR movements.",
+    approach: "Develop an automated cohort retention model that segments subscribers by acquisition vintage and contract tier.",
+    insights: ["Map cohort survival curves", "Quantify revenue churn vs customer churn", "Isolate early warning signals for cancellations"],
+    accent: "orange",
+  },
+  {
+    slug: "supply-chain-inventory-health",
+    title: "Supply Chain & Warehouse Optimization",
+    category: "Operations Analytics",
+    tools: ["Looker Studio", "Excel"],
+    problem: "Illustrative scenario: a multi-location distributor struggles with stockouts on fast-movers and dead stock on long-tail items.",
+    approach: "Establish automated reorder point alerts and days-of-inventory thresholds across regional fulfillment hubs.",
+    insights: ["Flag impending stockouts 14 days in advance", "Reduce excess holding costs by 22%", "Standardize supplier lead-time variance tracking"],
+    accent: "charcoal",
+  },
 ] as const;
 
 export const portfolioFilters = [

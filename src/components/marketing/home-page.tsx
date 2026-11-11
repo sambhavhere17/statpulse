@@ -21,6 +21,8 @@ import { SectionHeader } from "@/components/ui/section-header";
 import { siteConfig, pricingFootnote } from "@/config/site";
 import { industries } from "@/content/industries";
 import { projects } from "@/content/projects";
+import { TechStackStrip } from "@/components/marketing/tech-stack-strip";
+import { RoiCalculator } from "@/components/marketing/roi-calculator";
 
 const features = [
   { icon: "Lightbulb", title: "Actionable Business Insights", text: "Make the next decision with a clearer view." },
@@ -127,6 +129,8 @@ export function HomePage() {
           ))}
         </div>
       </section>
+
+      <TechStackStrip />
 
       <section className="section section-white" id="industries">
         <div className="container-site">
@@ -292,6 +296,12 @@ export function HomePage() {
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="section section-cream" id="calculator">
+        <div className="container-site">
+          <RoiCalculator />
         </div>
       </section>
 

@@ -1,8 +1,22 @@
 # StatPulse Analytics
 
-StatPulse is a responsive analytics services website built with Next.js App Router, TypeScript, Tailwind CSS, and Recharts. Portfolio examples and dashboard charts use synthetic data and are presented as illustrations.
+StatPulse Analytics is a modern, high-performance business intelligence and data consulting web platform built with Next.js App Router, TypeScript, Tailwind CSS, and Recharts.
 
-## Run locally
+---
+
+## Key Features
+
+- **Modern Brand & Visual Identity:** Polished frosted-glass navigation, responsive layout, accessible typography, and high-impact analytics visual components.
+- **Interactive Reporting ROI Calculator:** Real-time calculator estimating annual hours and operational budget saved by automating spreadsheets.
+- **Dedicated Consultation Booking System (`/book`):** Direct intake and scheduling interface with structured agendas and flexible calendar fallbacks.
+- **Live Synthetic Demo Dashboard (`/dashboard-demo`):** Interactive dashboard featuring Sales, Marketing, Operations, and Customer Retention & LTV analytics views with 1-click CSV data export.
+- **Modern Data Stack Compatibility:** Showcases seamless integrations across Power BI, Google Looker Studio, Excel Power Query, PostgreSQL, BigQuery, Snowflake, and Python.
+- **Expanded Portfolio & Case Studies (`/portfolio`):** Deep-dive case studies covering e-commerce sales, operations KPI hierarchy, marketing attribution, cohort churn analysis, and supply chain inventory health.
+- **Secure Backend & Admin Portal (`/admin/leads`):** Built-in Supabase authentication, role-based access control, Redis rate limiting, Turnstile anti-bot verification, and lead management.
+
+---
+
+## Run Locally
 
 ```bash
 npm install
@@ -10,30 +24,32 @@ cp .env.example .env.local
 npm run dev
 ```
 
-Open `http://localhost:3000`. The site renders without service credentials, but lead submission and the admin area need the setup below.
+Open [http://localhost:3000](http://localhost:3000). The public site, interactive calculator, and synthetic dashboard render seamlessly without requiring backend credentials. Lead submission and the admin portal utilize the Supabase setup detailed below.
 
-## Configure services
+---
 
-1. Create a Supabase project, then run `supabase/migrations/202611070001_create_leads.sql` in its SQL editor.
-2. Add an admin user in Supabase Auth, then add that user's UUID to `public.admins` using the migration's admin table.
-3. Set `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, and `SUPABASE_SERVICE_ROLE_KEY` in `.env.local` or the hosting provider. Keep the service role key private.
-4. Configure Upstash Redis REST URL/token and a random `IP_HASH_SALT` of at least 16 characters for lead rate limiting.
-5. Optionally set Cloudflare Turnstile, Resend email, analytics, contact details, booking URL, and public site URL values shown in `.env.example`.
+## Configure Services
 
-Use `/contact` to submit enquiries and `/admin/login` to access the lead dashboard. Admin access is granted only to signed-in users listed in `public.admins`.
+1. Create a [Supabase](https://supabase.com) project and execute `supabase/migrations/202611070001_create_leads.sql` in the SQL Editor.
+2. Add an admin user in Supabase Auth, then register that user's UUID in `public.admins`.
+3. Configure `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, and `SUPABASE_SERVICE_ROLE_KEY` in `.env.local`.
+4. Configure Upstash Redis REST URL/token and a secure `IP_HASH_SALT` for IP rate limiting.
+5. Optionally configure Cloudflare Turnstile, Resend email notifications, Google Analytics, and custom booking calendar URLs.
 
-## Commands
+---
+
+## Verification & Commands
 
 ```bash
-npm run lint
-npm run typecheck
-npm run test
-npm run test:e2e
-npm run build
+npm run lint         # Run ESLint rules
+npm run typecheck    # Validate TypeScript types
+npm run test         # Run Vitest unit tests
+npm run test:e2e     # Run Playwright end-to-end tests
+npm run build        # Production Next.js build
 ```
 
-Playwright needs its Chromium browser installed (`npx playwright install chromium`).
+---
 
 ## Deployment
 
-Deploy as a Next.js application (for example, on Vercel), configure the environment variables, and set `NEXT_PUBLIC_SITE_URL` to the production origin. Apply the Supabase migration before enabling lead submissions. No live client data, client logos, testimonials, or performance results are included.
+Deploy directly as a standard Next.js application (e.g. on Vercel or AWS Amplify), configure environment variables, and point `NEXT_PUBLIC_SITE_URL` to your production domain.

@@ -19,7 +19,7 @@ export function ButtonLink({
   className = "",
   external = false,
 }: ButtonLinkProps) {
-  const resolvedHref = href === "/book" ? siteConfig.bookingUrl || "/contact" : href;
+  const resolvedHref = href === "/book" ? siteConfig.bookingUrl || "/book" : href;
   const isExternal = external || resolvedHref.startsWith("http");
   const content = (
     <>
