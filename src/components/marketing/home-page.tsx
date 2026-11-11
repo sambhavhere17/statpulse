@@ -56,12 +56,16 @@ const steps = [
 ];
 
 function MiniMatrix({ seed }: { seed: number }) {
+  const scores = [92, 100, 97, 88].map((score, index) => Math.min(100, score + ((seed + index) % 3) * 2));
   return (
     <div aria-label="Business performance matrix" className="matrix-preview" role="img">
-      {Array.from({ length: 24 }, (_, index) => {
-        const level = (index * 7 + seed * 5) % 5;
-        return <span className={"matrix-cell matrix-cell--" + level} key={index} />;
-      })}
+      <div className="matrix-table-head"><span>Metric</span><span>Target</span><span>Actual</span><span>Score</span></div>
+      {scores.map((score, index) => (
+        <div className="matrix-table-row" key={index}>
+          <span>Team {index + 1}</span><span>≥ 90%</span><span>{score}%</span><strong className={score >= 95 ? "is-on-track" : "is-watch"}>{score}%</strong>
+        </div>
+      ))}
+      <div className="matrix-score-chart" aria-hidden="true">{scores.map((score, index) => <span key={index} style={{ height: `${Math.max(38, score)}%` }} />)}</div>
     </div>
   );
 }
@@ -201,16 +205,11 @@ export function HomePage() {
             title="A clearer view at every level"
           />
           <div className="matrix-grid">
-            {matrixProducts.map((product, index) => (
+            {matrixProducts.map((product) => (
               <article className="matrix-card" key={product.title}>
-                <div className="matrix-card-heading">
-                  <IconTile name={["ClipboardCheck", "Gauge", "PackageCheck"][index]} />
-                  <span className="matrix-note">Reporting template</span>
-                </div>
                 <h3>{product.title}</h3>
                 <p>{product.copy}</p>
                 <MiniMatrix seed={index + 1} />
-                <p className="matrix-caption">Performance matrix</p>
                 <ButtonLink arrow href={"/contact?service=" + product.service} variant="secondary">
                   Discuss Your Requirements
                 </ButtonLink>
