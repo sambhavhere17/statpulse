@@ -205,7 +205,7 @@ export function HomePage() {
             title="A clearer view at every level"
           />
           <div className="matrix-grid">
-            {matrixProducts.map((product) => (
+            {matrixProducts.map((product, index) => (
               <article className="matrix-card" key={product.title}>
                 <h3>{product.title}</h3>
                 <p>{product.copy}</p>
