@@ -5,7 +5,7 @@ import "./about.css";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Learn about StatPulse Analytics, our founder Sambhav Jain, and our mission to provide high-impact data analytics for startups and growing companies.",
+    "Learn about StatPulse Analytics, our founder Sambhav Jain, and our mission to provide high-impact, affordable business intelligence for startups and growing companies.",
   alternates: { canonical: "/about" },
 };
 
@@ -13,13 +13,13 @@ export default function AboutPage() {
   return (
     <main className="statpulse-about-page">
       {/* ========================================================================= */}
-      {/* 1. HERO SECTION (Dark Background #0C1A19 with Mint Pulse Line)           */}
+      {/* 1. HERO SECTION (StatPulse Dark Charcoal with Orange Heartbeat Pulse)     */}
       {/* ========================================================================= */}
       <section className="about-hero" aria-labelledby="about-hero-title">
         <div className="about-container about-hero-content">
           <span className="about-hero-tag">ABOUT STATPULSE</span>
           <h1 id="about-hero-title" className="about-hero-heading">
-            Every business has a heartbeat. Most just can&apos;t hear it.
+            Every business has a <span>heartbeat.</span> Most just can&apos;t hear it.
           </h1>
           <p className="about-hero-subtext">
             StatPulse turns raw data into clear direction, so startups and growing
@@ -28,7 +28,7 @@ export default function AboutPage() {
           </p>
         </div>
 
-        {/* Mint pulse-line (heartbeat) SVG across the bottom of the hero */}
+        {/* Orange pulse-line (heartbeat) SVG across the bottom of the hero */}
         <div className="pulse-line-wrapper" aria-hidden="true">
           <svg
             className="pulse-line-svg"
@@ -39,7 +39,7 @@ export default function AboutPage() {
           >
             <path
               d="M0,50 L420,50 L450,50 L470,18 L488,82 L508,8 L526,92 L542,50 L565,50 L1200,50"
-              stroke="#3DDBC4"
+              stroke="#FF9500"
               strokeWidth="2.5"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -49,7 +49,7 @@ export default function AboutPage() {
       </section>
 
       {/* ========================================================================= */}
-      {/* 2. FOUNDER STORY (Light Background #F5F8F7, Two Columns)                  */}
+      {/* 2. FOUNDER STORY (StatPulse Cream Background, Two Columns)                */}
       {/* ========================================================================= */}
       <section className="about-founder-section" aria-labelledby="founder-story-title">
         <div className="about-container about-founder-grid">
@@ -70,7 +70,7 @@ export default function AboutPage() {
                   aria-hidden="true"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#0B6F64"
+                  stroke="#CF7100"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -86,7 +86,7 @@ export default function AboutPage() {
                   aria-hidden="true"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#0B6F64"
+                  stroke="#CF7100"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -102,7 +102,7 @@ export default function AboutPage() {
                   aria-hidden="true"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#0B6F64"
+                  stroke="#CF7100"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -118,7 +118,7 @@ export default function AboutPage() {
                   aria-hidden="true"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#0B6F64"
+                  stroke="#CF7100"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -161,7 +161,7 @@ export default function AboutPage() {
       </section>
 
       {/* ========================================================================= */}
-      {/* 3. NUMBERS STRIP (Three Dark Cards, Big Mint Numerals #3DDBC4)            */}
+      {/* 3. NUMBERS STRIP (StatPulse Dark Charcoal Cards, Orange Numerals)         */}
       {/* ========================================================================= */}
       <section className="about-numbers-section" aria-label="Key Numbers">
         <div className="about-container numbers-grid">
@@ -181,7 +181,7 @@ export default function AboutPage() {
       </section>
 
       {/* ========================================================================= */}
-      {/* 4. WHAT WE DO (4 White Cards in a Grid, Inline Stroke SVGs)               */}
+      {/* 4. WHAT WE DO (4 White Cards with StatPulse Orange Accent)                */}
       {/* ========================================================================= */}
       <section className="about-what-we-do-section" aria-labelledby="what-we-do-title">
         <div className="about-container">
@@ -200,7 +200,7 @@ export default function AboutPage() {
                   aria-hidden="true"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#0B6F64"
+                  stroke="#CF7100"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -225,7 +225,7 @@ export default function AboutPage() {
                   aria-hidden="true"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#0B6F64"
+                  stroke="#CF7100"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -246,7 +246,7 @@ export default function AboutPage() {
                   aria-hidden="true"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#0B6F64"
+                  stroke="#CF7100"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -268,7 +268,7 @@ export default function AboutPage() {
                   aria-hidden="true"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#0B6F64"
+                  stroke="#CF7100"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -287,7 +287,7 @@ export default function AboutPage() {
       </section>
 
       {/* ========================================================================= */}
-      {/* 5. WHAT WE BELIEVE (Large Soft-Teal #E3EEEC Rounded Panel)                */}
+      {/* 5. WHAT WE BELIEVE (StatPulse Cream Card Panel with Warm Border)          */}
       {/* ========================================================================= */}
       <section className="about-belief-section" aria-label="Our Beliefs">
         <div className="about-container">
@@ -306,7 +306,7 @@ export default function AboutPage() {
       </section>
 
       {/* ========================================================================= */}
-      {/* 6. TEAM (4 Placeholder Cards)                                             */}
+      {/* 6. TEAM (4 Clean Placeholder Cards)                                      */}
       {/* ========================================================================= */}
       <section className="about-team-section" aria-labelledby="team-heading">
         <div className="about-container">
@@ -326,7 +326,7 @@ export default function AboutPage() {
                   aria-hidden="true"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#0B6F64"
+                  stroke="#CF7100"
                   strokeWidth="1.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -347,7 +347,7 @@ export default function AboutPage() {
                   aria-hidden="true"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#0B6F64"
+                  stroke="#CF7100"
                   strokeWidth="1.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -368,7 +368,7 @@ export default function AboutPage() {
                   aria-hidden="true"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#0B6F64"
+                  stroke="#CF7100"
                   strokeWidth="1.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -389,7 +389,7 @@ export default function AboutPage() {
                   aria-hidden="true"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="#0B6F64"
+                  stroke="#CF7100"
                   strokeWidth="1.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -406,7 +406,7 @@ export default function AboutPage() {
       </section>
 
       {/* ========================================================================= */}
-      {/* 7. CLOSING CTA (Dark Background #0C1A19, Centered)                        */}
+      {/* 7. CLOSING CTA (StatPulse Dark Charcoal Section, Centered)                */}
       {/* ========================================================================= */}
       <section className="about-cta-section" aria-labelledby="about-cta-title">
         <div className="about-container about-cta-inner">
@@ -417,7 +417,7 @@ export default function AboutPage() {
             Tell us what you&apos;re trying to improve and we&apos;ll show you what your
             data already knows.
           </p>
-          <Link href="/contact" className="mint-pill-button">
+          <Link href="/contact" className="orange-pill-button">
             Talk to StatPulse
           </Link>
         </div>

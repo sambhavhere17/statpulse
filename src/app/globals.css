@@ -16,7 +16,7 @@
   --body-gray: #555b66;
   --line-gray: #eae4dc;
   --white: #ffffff;
-  --font-size-root: clamp(14px, 0.45vw + 12.4px, 19px);
+  --font-size-root: clamp(14px, 0.15vw + 13.5px, 16px);
 }
 
 * {
@@ -299,10 +299,10 @@ svg {
   margin: 0;
   color: var(--charcoal);
   font-family: var(--font-manrope), sans-serif;
-  font-size: clamp(1.8rem, 3.6vw, 2.7rem);
+  font-size: clamp(1.6rem, 2.6vw, 2.25rem);
   font-weight: 800;
-  letter-spacing: -0.035em;
-  line-height: 1.08;
+  letter-spacing: -0.03em;
+  line-height: 1.16;
 }
 
 .section-charcoal .section-title {
@@ -337,10 +337,10 @@ svg {
   max-width: 700px;
   margin: 0;
   font-family: var(--font-manrope), sans-serif;
-  font-size: clamp(2.35rem, 4.05vw, 3.4rem);
+  font-size: clamp(1.9rem, 3.2vw, 2.65rem);
   font-weight: 800;
-  letter-spacing: -0.045em;
-  line-height: 1.08;
+  letter-spacing: -0.04em;
+  line-height: 1.14;
 }
 
 .hero-copy h1 span,
@@ -477,9 +477,9 @@ svg {
 }
 
 .hero-section--showcase .hero-copy h1 {
-  max-width: 50rem;
-  font-size: clamp(3rem, 4.4vw, 4.25rem);
-  line-height: 1.1;
+  max-width: 44rem;
+  font-size: clamp(2.1rem, 3.2vw, 2.85rem);
+  line-height: 1.14;
 }
 
 .hero-eyebrow {
@@ -488,10 +488,10 @@ svg {
 }
 
 .hero-section--showcase .hero-description {
-  max-width: 44rem;
-  margin-block: 1.5rem 1.9rem;
-  font-size: clamp(1rem, 1.25vw, 1.18rem);
-  line-height: 1.55;
+  max-width: 40rem;
+  margin-block: 1.2rem 1.6rem;
+  font-size: clamp(0.95rem, 1vw, 1.06rem);
+  line-height: 1.6;
 }
 
 .hero-section--showcase .hero-actions .button {
@@ -1798,10 +1798,10 @@ svg {
   max-width: 720px;
   margin: 0;
   font-family: var(--font-manrope), sans-serif;
-  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  font-size: clamp(1.55rem, 2.4vw, 2.15rem);
   font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 1.1;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
 }
 
 .cta-band-inner > div:first-child > p:last-child {
@@ -3380,7 +3380,7 @@ svg {
 
 .roi-card-header h2 {
   font-family: var(--font-manrope), sans-serif;
-  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+  font-size: clamp(1.45rem, 2.4vw, 1.95rem);
   font-weight: 800;
   letter-spacing: -0.03em;
   margin-block: 0.8rem 0.7rem;
@@ -3511,7 +3511,7 @@ svg {
 
 .metric-big-number {
   font-family: var(--font-manrope), sans-serif;
-  font-size: clamp(2.4rem, 4.5vw, 3.4rem);
+  font-size: clamp(1.9rem, 3.2vw, 2.5rem);
   font-weight: 800;
   letter-spacing: -0.04em;
   color: var(--white);
@@ -3585,11 +3585,11 @@ svg {
 
 .book-heading {
   font-family: var(--font-manrope), sans-serif;
-  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-size: clamp(1.75rem, 2.6vw, 2.35rem);
   font-weight: 800;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.03em;
   color: var(--charcoal);
-  line-height: 1.15;
+  line-height: 1.18;
   margin: 0;
 }
 
@@ -3598,7 +3598,7 @@ svg {
 }
 
 .book-subhead {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: var(--body-gray);
   line-height: 1.6;
   margin: 0;
