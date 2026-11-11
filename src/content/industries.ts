@@ -3,7 +3,7 @@ export const industries = [
     slug: "ecommerce",
     name: "E-commerce & D2C",
     icon: "ShoppingBag",
-    image: "https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=700&q=80",
+    image: "/images/ecommerce-analytics.png",
     description: "Sales, returns, product performance, and profitability.",
     challenges: ["Sales split across storefronts and channels", "Returns and discounts obscure product margins", "Teams rebuild the same reports every week"],
     kpis: ["Net sales", "Return rate", "Contribution margin", "Channel performance"],
