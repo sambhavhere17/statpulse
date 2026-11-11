@@ -1,5 +1,5 @@
 /* ========================================================================= */
-/* STATPULSE ABOUT PAGE — BRAND DESIGN SYSTEM                                */
+/* STATPULSE ABOUT PAGE — ENTERPRISE CONSULTING VISUAL STYLE (EXL INSPIRED)  */
 /* Cohesive with StatPulse Charcoal (#292C32), Orange (#FF9500), & Cream    */
 /* ========================================================================= */
 
@@ -87,7 +87,7 @@
 }
 
 /* ========================================================================= */
-/* 2. FOUNDER STORY SECTION (Cream Background, Two Columns)                  */
+/* 2. FOUNDER STORY SECTION (Cream Background, Two Columns with Photo)       */
 /* ========================================================================= */
 .about-founder-section {
   padding-block: clamp(3.5rem, 6vw, 5.5rem);
@@ -116,29 +116,54 @@
   box-shadow: 0 12px 28px rgba(41, 44, 50, 0.08);
 }
 
-.founder-avatar-box {
-  width: 88px;
-  height: 88px;
-  border-radius: 18px;
-  background: linear-gradient(135deg, #2e323a 0%, #1e2025 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.25rem;
+.founder-photo-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 220px;
+  margin-inline: auto;
+  margin-bottom: 1.35rem;
+  border-radius: 20px;
+  overflow: hidden;
   border: 2px solid var(--orange);
-  box-shadow: 0 6px 16px rgba(255, 149, 0, 0.22);
+  box-shadow: 0 8px 24px rgba(255, 149, 0, 0.2);
 }
 
-.founder-initials {
-  font-family: var(--font-manrope), sans-serif;
-  font-size: 2rem;
-  font-weight: 800;
-  color: var(--orange);
-  letter-spacing: -0.02em;
+.founder-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.founder-verified-badge {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(41, 44, 50, 0.88);
+  backdrop-filter: blur(8px);
+  color: var(--white);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.badge-pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  background: var(--orange);
+  box-shadow: 0 0 6px var(--orange);
 }
 
 .founder-meta {
   margin-bottom: 1.15rem;
+  text-align: center;
 }
 
 .founder-name {
@@ -191,7 +216,7 @@
 .founder-story-copy {
   display: flex;
   flex-direction: column;
-  gap: 1.15rem;
+  gap: 1.25rem;
 }
 
 .section-label {
@@ -227,8 +252,58 @@
   margin: 0;
 }
 
+.story-image-card {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(41, 44, 50, 0.08);
+  border: 1px solid var(--line-gray);
+  margin-top: 0.75rem;
+}
+
+.story-image {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+}
+
+.story-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(41, 44, 50, 0.75) 0%, rgba(41, 44, 50, 0.1) 60%);
+  display: flex;
+  align-items: flex-end;
+  padding: 1.25rem;
+  gap: 1rem;
+}
+
+.floating-metric-pill {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.metric-pill-num {
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--orange-dark);
+}
+
+.metric-pill-lbl {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--charcoal);
+}
+
 /* ========================================================================= */
-/* 3. NUMBERS STRIP (Dark Charcoal Cards, StatPulse Orange Numerals)         */
+/* 3. NUMBERS STRIP (StatPulse Dark Charcoal Cards, Orange Numerals)         */
 /* ========================================================================= */
 .about-numbers-section {
   background-color: var(--charcoal);
@@ -275,7 +350,7 @@
 }
 
 /* ========================================================================= */
-/* 4. WHAT WE DO (4 White Cards with Orange Accent)                          */
+/* 4. WHAT WE DO (4 Image Cards with StatPulse Orange Accent)                */
 /* ========================================================================= */
 .about-what-we-do-section {
   padding-block: clamp(4rem, 6vw, 5.75rem);
@@ -295,51 +370,73 @@
 
 .what-we-do-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
 }
 
 .service-feature-card {
   background: var(--white);
   border: 1px solid var(--line-gray);
   border-radius: 18px;
-  padding: 1.85rem 1.6rem;
-  box-shadow: 0 2px 12px rgba(41, 44, 50, 0.03);
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(41, 44, 50, 0.04);
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .service-feature-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 24px rgba(41, 44, 50, 0.07);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(41, 44, 50, 0.09);
   border-color: var(--orange);
 }
 
-.service-icon-box {
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  background: var(--orange-tint);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.15rem;
+.card-image-box {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
 }
 
-.service-icon-box svg {
-  width: 22px;
-  height: 22px;
+.card-feature-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.service-feature-card:hover .card-feature-img {
+  transform: scale(1.05);
+}
+
+.card-badge-pill {
+  position: absolute;
+  bottom: 10px;
+  left: 12px;
+  background: rgba(41, 44, 50, 0.85);
+  backdrop-filter: blur(8px);
+  color: var(--orange-tint);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.card-body-content {
+  padding: 1.5rem 1.4rem;
 }
 
 .service-title {
   font-family: var(--font-manrope), sans-serif;
-  font-size: 1.18rem;
+  font-size: 1.15rem;
   font-weight: 800;
   color: var(--charcoal);
   margin: 0 0 0.45rem 0;
 }
 
 .service-text {
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   color: var(--body-gray);
   line-height: 1.55;
   margin: 0;
@@ -384,7 +481,7 @@
 }
 
 /* ========================================================================= */
-/* 6. TEAM SECTION                                                           */
+/* 6. TEAM SECTION (Professional Team Profiles with Images)                  */
 /* ========================================================================= */
 .about-team-section {
   padding-block: clamp(3.5rem, 6vw, 5.5rem);
@@ -394,48 +491,49 @@
 .team-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.25rem;
+  gap: 1.5rem;
 }
 
 .team-card {
   background: #fbfbfd;
   border: 1px solid var(--line-gray);
   border-radius: 18px;
-  padding: 1.6rem 1.35rem;
+  overflow: hidden;
   text-align: center;
+  padding-bottom: 1.25rem;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .team-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(41, 44, 50, 0.06);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(41, 44, 50, 0.08);
 }
 
-.team-image-box {
-  width: 76px;
-  height: 76px;
-  border-radius: 16px;
-  background: var(--cream);
-  margin-inline: auto;
+.team-photo-box {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
   margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px dashed var(--orange);
 }
 
-.team-placeholder-icon {
-  width: 32px;
-  height: 32px;
-  opacity: 0.75;
+.team-member-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.team-card:hover .team-member-img {
+  transform: scale(1.04);
 }
 
 .team-name {
   font-family: var(--font-manrope), sans-serif;
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 800;
   color: var(--charcoal);
   margin: 0 0 0.25rem 0;
+  padding-inline: 1rem;
 }
 
 .team-role {
@@ -443,6 +541,7 @@
   font-weight: 600;
   color: var(--orange-dark);
   margin: 0;
+  padding-inline: 1rem;
 }
 
 /* ========================================================================= */

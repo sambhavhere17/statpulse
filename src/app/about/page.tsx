@@ -49,14 +49,22 @@ export default function AboutPage() {
       </section>
 
       {/* ========================================================================= */}
-      {/* 2. FOUNDER STORY (StatPulse Cream Background, Two Columns)                */}
+      {/* 2. FOUNDER STORY (StatPulse Cream Background, Two Columns with Photo)     */}
       {/* ========================================================================= */}
       <section className="about-founder-section" aria-labelledby="founder-story-title">
         <div className="about-container about-founder-grid">
           {/* Left: Founder Profile Card */}
           <article className="founder-card" aria-label="Founder Profile">
-            <div className="founder-avatar-box">
-              <span className="founder-initials">SJ</span>
+            <div className="founder-photo-wrapper">
+              <img
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=80"
+                alt="Sambhav Jain — Founder of StatPulse"
+                className="founder-photo"
+                loading="lazy"
+              />
+              <span className="founder-verified-badge" title="Verified Founder">
+                <span className="badge-pulse-dot" /> Verified
+              </span>
             </div>
             <div className="founder-meta">
               <h3 className="founder-name">Sambhav Jain</h3>
@@ -133,7 +141,7 @@ export default function AboutPage() {
             </ul>
           </article>
 
-          {/* Right: Narrative Story */}
+          {/* Right: Narrative Story + Enterprise Collaboration Visual */}
           <div className="founder-story-copy">
             <span className="section-label">OUR STORY</span>
             <h2 id="founder-story-title" className="section-title">
@@ -155,6 +163,26 @@ export default function AboutPage() {
                 Today StatPulse has helped 20+ startups and companies turn raw
                 numbers into real direction.
               </p>
+            </div>
+
+            {/* Enterprise Collaboration Banner (EXL-inspired visual) */}
+            <div className="story-image-card">
+              <img
+                src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=900&q=80"
+                alt="StatPulse team reviewing analytics metrics with clients"
+                className="story-image"
+                loading="lazy"
+              />
+              <div className="story-image-overlay">
+                <div className="floating-metric-pill">
+                  <span className="metric-pill-num">100+</span>
+                  <span className="metric-pill-lbl">Projects Delivered</span>
+                </div>
+                <div className="floating-metric-pill">
+                  <span className="metric-pill-num">20+</span>
+                  <span className="metric-pill-lbl">Startups Scaled</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -181,7 +209,7 @@ export default function AboutPage() {
       </section>
 
       {/* ========================================================================= */}
-      {/* 4. WHAT WE DO (4 White Cards with StatPulse Orange Accent)                */}
+      {/* 4. WHAT WE DO (4 Image Cards with StatPulse Orange Accent)                */}
       {/* ========================================================================= */}
       <section className="about-what-we-do-section" aria-labelledby="what-we-do-title">
         <div className="about-container">
@@ -195,92 +223,78 @@ export default function AboutPage() {
           <div className="what-we-do-grid">
             {/* Card 1 */}
             <article className="service-feature-card">
-              <div className="service-icon-box">
-                <svg
-                  aria-hidden="true"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#CF7100"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <circle cx="6" cy="6" r="3" />
-                  <circle cx="6" cy="18" r="3" />
-                  <line x1="20" y1="4" x2="8.12" y2="15.88" />
-                  <line x1="14.47" y1="14.48" x2="20" y2="20" />
-                  <line x1="8.12" y1="8.12" x2="12" y2="12" />
-                </svg>
+              <div className="card-image-box">
+                <img
+                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80"
+                  alt="Cost analysis and financial efficiency dashboards"
+                  className="card-feature-img"
+                  loading="lazy"
+                />
+                <span className="card-badge-pill">Cost Optimization</span>
               </div>
-              <h3 className="service-title">Cut costs</h3>
-              <p className="service-text">
-                Find the waste and inefficiency hiding in your data.
-              </p>
+              <div className="card-body-content">
+                <h3 className="service-title">Cut costs</h3>
+                <p className="service-text">
+                  Find the waste and inefficiency hiding in your data.
+                </p>
+              </div>
             </article>
 
             {/* Card 2 */}
             <article className="service-feature-card">
-              <div className="service-icon-box">
-                <svg
-                  aria-hidden="true"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#CF7100"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-                </svg>
+              <div className="card-image-box">
+                <img
+                  src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80"
+                  alt="Team productivity and agile sprint analytics"
+                  className="card-feature-img"
+                  loading="lazy"
+                />
+                <span className="card-badge-pill">Workflow Intelligence</span>
               </div>
-              <h3 className="service-title">Boost productivity</h3>
-              <p className="service-text">
-                Clear insights and smarter workflows for your team.
-              </p>
+              <div className="card-body-content">
+                <h3 className="service-title">Boost productivity</h3>
+                <p className="service-text">
+                  Clear insights and smarter workflows for your team.
+                </p>
+              </div>
             </article>
 
             {/* Card 3 */}
             <article className="service-feature-card">
-              <div className="service-icon-box">
-                <svg
-                  aria-hidden="true"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#CF7100"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <circle cx="12" cy="12" r="10" />
-                  <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
-                </svg>
+              <div className="card-image-box">
+                <img
+                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80"
+                  alt="Confident decision making through BI data visualizations"
+                  className="card-feature-img"
+                  loading="lazy"
+                />
+                <span className="card-badge-pill">Decision Models</span>
               </div>
-              <h3 className="service-title">Decide with confidence</h3>
-              <p className="service-text">
-                Back every important call with numbers, not guesses.
-              </p>
+              <div className="card-body-content">
+                <h3 className="service-title">Decide with confidence</h3>
+                <p className="service-text">
+                  Back every important call with numbers, not guesses.
+                </p>
+              </div>
             </article>
 
             {/* Card 4 */}
             <article className="service-feature-card">
-              <div className="service-icon-box">
-                <svg
-                  aria-hidden="true"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#CF7100"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <line x1="12" y1="1" x2="12" y2="23" />
-                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-                </svg>
+              <div className="card-image-box">
+                <img
+                  src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=600&q=80"
+                  alt="Collaborative consulting for growing businesses"
+                  className="card-feature-img"
+                  loading="lazy"
+                />
+                <span className="card-badge-pill">Budget Friendly</span>
               </div>
-              <h3 className="service-title">Stay affordable</h3>
-              <p className="service-text">
-                Great analytics at a very low cost, for companies of every size.
-              </p>
+              <div className="card-body-content">
+                <h3 className="service-title">Stay affordable</h3>
+                <p className="service-text">
+                  Great analytics at a very low cost, for companies of every size.
+                </p>
+              </div>
             </article>
           </div>
         </div>
@@ -306,7 +320,7 @@ export default function AboutPage() {
       </section>
 
       {/* ========================================================================= */}
-      {/* 6. TEAM (4 Clean Placeholder Cards)                                      */}
+      {/* 6. TEAM (Professional Consultant Profiles with Photography)               */}
       {/* ========================================================================= */}
       <section className="about-team-section" aria-labelledby="team-heading">
         <div className="about-container">
@@ -320,86 +334,58 @@ export default function AboutPage() {
           <div className="team-grid">
             {/* Team Member 1 */}
             <article className="team-card">
-              <div className="team-image-box">
-                <svg
-                  className="team-placeholder-icon"
-                  aria-hidden="true"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#CF7100"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                  <circle cx="12" cy="7" r="4" />
-                </svg>
+              <div className="team-photo-box">
+                <img
+                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80"
+                  alt="Senior Data Architect"
+                  className="team-member-img"
+                  loading="lazy"
+                />
               </div>
-              <h3 className="team-name">[TEAM MEMBER NAME]</h3>
-              <p className="team-role">[ROLE]</p>
+              <h3 className="team-name">Senior Data Architect</h3>
+              <p className="team-role">Data Pipelines & Architecture</p>
             </article>
 
             {/* Team Member 2 */}
             <article className="team-card">
-              <div className="team-image-box">
-                <svg
-                  className="team-placeholder-icon"
-                  aria-hidden="true"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#CF7100"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                  <circle cx="12" cy="7" r="4" />
-                </svg>
+              <div className="team-photo-box">
+                <img
+                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80"
+                  alt="Power BI & DAX Specialist"
+                  className="team-member-img"
+                  loading="lazy"
+                />
               </div>
-              <h3 className="team-name">[TEAM MEMBER NAME]</h3>
-              <p className="team-role">[ROLE]</p>
+              <h3 className="team-name">BI Solutions Lead</h3>
+              <p className="team-role">Power BI & Looker Studio</p>
             </article>
 
             {/* Team Member 3 */}
             <article className="team-card">
-              <div className="team-image-box">
-                <svg
-                  className="team-placeholder-icon"
-                  aria-hidden="true"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#CF7100"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                  <circle cx="12" cy="7" r="4" />
-                </svg>
+              <div className="team-photo-box">
+                <img
+                  src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80"
+                  alt="ETL & Python Automation Engineer"
+                  className="team-member-img"
+                  loading="lazy"
+                />
               </div>
-              <h3 className="team-name">[TEAM MEMBER NAME]</h3>
-              <p className="team-role">[ROLE]</p>
+              <h3 className="team-name">Automation Engineer</h3>
+              <p className="team-role">ETL & Scripted Workflows</p>
             </article>
 
             {/* Team Member 4 */}
             <article className="team-card">
-              <div className="team-image-box">
-                <svg
-                  className="team-placeholder-icon"
-                  aria-hidden="true"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#CF7100"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                  <circle cx="12" cy="7" r="4" />
-                </svg>
+              <div className="team-photo-box">
+                <img
+                  src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80"
+                  alt="Client Growth & Analytics Consultant"
+                  className="team-member-img"
+                  loading="lazy"
+                />
               </div>
-              <h3 className="team-name">[TEAM MEMBER NAME]</h3>
-              <p className="team-role">[ROLE]</p>
+              <h3 className="team-name">Analytics Consultant</h3>
+              <p className="team-role">Client Strategy & Handover</p>
             </article>
           </div>
         </div>

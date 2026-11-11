@@ -139,13 +139,26 @@ export function HomePage() {
           />
           <div className="industry-grid">
             {industries.map((industry) => (
-              <article className="industry-card" key={industry.slug}>
-                <IconTile name={industry.icon} />
-                <h3>{industry.name}</h3>
-                <p>{industry.description}</p>
-                <Link className="card-link" href={"/solutions/" + industry.slug}>
-                  View Solution <ArrowRight aria-hidden="true" size={16} />
-                </Link>
+              <article className="industry-card industry-card--image" key={industry.slug}>
+                {"image" in industry && (
+                  <div className="industry-image-container">
+                    <img
+                      src={industry.image}
+                      alt={industry.name}
+                      className="industry-card-img"
+                      loading="lazy"
+                    />
+                    <span className="industry-tag-badge">{industry.name}</span>
+                  </div>
+                )}
+                <div className="industry-card-content">
+                  <IconTile name={industry.icon} />
+                  <h3>{industry.name}</h3>
+                  <p>{industry.description}</p>
+                  <Link className="card-link" href={"/solutions/" + industry.slug}>
+                    View Solution <ArrowRight aria-hidden="true" size={16} />
+                  </Link>
+                </div>
               </article>
             ))}
           </div>
@@ -279,6 +292,14 @@ export function HomePage() {
             {projects.slice(0, 3).map((project, index) => (
               <article className="project-card" key={project.slug}>
                 <div className={"project-preview project-preview--" + project.accent}>
+                  {"image" in project && (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="project-cover-img"
+                      loading="lazy"
+                    />
+                  )}
                   <div className="project-preview-top"><span>Demo Project — Synthetic Data</span><ArrowUpRight aria-hidden="true" size={16} /></div>
                   {index === 0 ? <RevenueChart compact /> : <ProjectBars seed={index + 2} />}
                 </div>
