@@ -148,7 +148,6 @@ export function HomePage() {
                       className="industry-card-img"
                       loading="lazy"
                     />
-                    <span className="industry-tag-badge">{industry.name}</span>
                   </div>
                 )}
                 <div className="industry-card-content">
