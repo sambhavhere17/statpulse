@@ -151,7 +151,6 @@ export function HomePage() {
                   </div>
                 )}
                 <div className="industry-card-content">
-                  <IconTile name={industry.icon} />
                   <h3>{industry.name}</h3>
                   <p>{industry.description}</p>
                   <Link className="card-link" href={"/solutions/" + industry.slug}>
