@@ -208,28 +208,6 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="section section-charcoal">
-        <div className="container-site">
-          <SectionHeader
-            align="center"
-            description="Purpose-built dashboards and reporting for the way your business actually operates."
-            eyebrow="SOLUTIONS"
-            title="Analytics solutions for growing businesses"
-          />
-          <div className="solution-grid">
-            {industries.map((industry) => (
-              <article className="solution-card" key={industry.slug}>
-                <IconTile name={industry.icon} variant="charcoal" />
-                <h3>{industry.name}</h3>
-                <p>{industry.description}</p>
-                <CheckList items={industry.bullets} />
-                <Link className="solution-link" href={"/solutions/" + industry.slug}>View Solution <ArrowRight aria-hidden="true" size={16} /></Link>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="section section-white">
         <div className="container-site">
           <SectionHeader
