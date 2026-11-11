@@ -23,13 +23,6 @@ import { industries } from "@/content/industries";
 import { projects } from "@/content/projects";
 import { RoiCalculator } from "@/components/marketing/roi-calculator";
 
-const features = [
-  { icon: "Lightbulb", title: "Actionable Business Insights", text: "Make the next decision with a clearer view." },
-  { icon: "Workflow", title: "Automated Reporting", text: "Spend less time rebuilding recurring reports." },
-  { icon: "Target", title: "KPI-Driven Decisions", text: "Focus on the measures that matter to your goals." },
-  { icon: "TrendingUp", title: "Built for Growing Businesses", text: "Start with a practical scope and extend it as needed." },
-];
-
 const benefits = [
   ["Less Manual Reporting", "Save time and reduce repetitive work."],
   ["Clearer Business Visibility", "Understand performance at a glance."],
@@ -118,14 +111,6 @@ export function HomePage() {
               </div>
             </div>
           </div>
-        </div>
-        <div className="container-site hero-feature-strip">
-          {features.map((feature) => (
-            <article className="hero-feature-card" key={feature.title}>
-              <IconTile name={feature.icon} size={25} />
-              <div><h2>{feature.title}</h2><p>{feature.text}</p></div>
-            </article>
-          ))}
         </div>
       </section>
 
