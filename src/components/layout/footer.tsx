@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Mail, Phone, Send } from "lucide-react";
 import { Logo } from "@/components/ui/logo";
 import { ButtonLink } from "@/components/ui/button-link";
 import { siteConfig } from "@/config/site";
@@ -28,13 +28,8 @@ export function Footer() {
           <div className="footer-brand">
             <Logo variant="dark" />
             <p>
-              We transform business data into actionable intelligence through smart dashboards,
-              AI-powered automation, and strategic analytics — helping businesses optimize costs,
-              improve efficiency, and accelerate growth.
+              Clear dashboards, useful reports, and practical systems for growing businesses.
             </p>
-            <ButtonLink arrow href="/book" variant="primary">
-              Start with a free discovery consultation
-            </ButtonLink>
           </div>
           <FooterColumn title="Services" items={serviceLinks} />
           <FooterColumn title="Solutions" items={solutionLinks} />
@@ -42,12 +37,20 @@ export function Footer() {
             title="Company"
             items={[
               { label: "About", href: "/about" },
-              { label: "Portfolio", href: "/portfolio" },
-              { label: "Live Dashboard Demo", href: "/dashboard-demo" },
               { label: "Contact", href: "/contact" },
               { label: "Privacy Policy", href: "/privacy" },
+              { label: "Terms", href: "/terms" },
             ]}
           />
+          <FooterColumn title="Resources" items={[{ label: "Portfolio", href: "/portfolio" }, { label: "Live demo", href: "/dashboard-demo" }, { label: "Insights", href: "/insights" }]} />
+        </div>
+        <div className="footer-contact-row">
+          <div><h2>Talk to an expert</h2><p>Bring your question. We’ll help you find the next useful step.</p><ButtonLink arrow href="/contact" variant="primary">Book a Free Call</ButtonLink></div>
+          <div className="footer-contact-details">
+            <p><Mail aria-hidden="true" size={16} /> [EMAIL]</p>
+            <p><Phone aria-hidden="true" size={16} /> [PHONE / WHATSAPP]</p>
+          </div>
+          <form className="newsletter-placeholder"><label htmlFor="newsletter-email">Get practical data tips</label><div><input disabled id="newsletter-email" placeholder="Newsletter setup needed" type="email" /><button aria-disabled="true" disabled type="button"><Send aria-hidden="true" size={16} /> Subscribe</button></div></form>
         </div>
         <div className="footer-bottom">
           <span>© {copyrightYears} {siteConfig.name}. All rights reserved.</span>

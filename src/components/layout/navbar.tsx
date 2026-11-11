@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
-import { siteConfig } from "@/config/site";
 import { Logo } from "@/components/ui/logo";
 import { ButtonLink } from "@/components/ui/button-link";
 
@@ -17,7 +16,12 @@ export function Navbar() {
       <div className="container-site nav-inner">
         <Logo />
         <nav aria-label="Main navigation" className={"nav-links " + (isOpen ? "nav-links--open" : "")}>
-          {siteConfig.navigation.map((item) => (
+          {[
+            { label: "Services", href: "/services" },
+            { label: "Solutions", href: "/solutions" },
+            { label: "Resources", href: "/portfolio" },
+            { label: "About", href: "/about" },
+          ].map((item) => (
             <Link
               aria-current={pathname === item.href ? "page" : undefined}
               className={pathname === item.href ? "nav-link nav-link--active" : "nav-link"}
@@ -30,7 +34,7 @@ export function Navbar() {
           ))}
         </nav>
         <ButtonLink arrow className="nav-cta" href="/book">
-          Book a Consultation
+          Book a Free Call
         </ButtonLink>
         <button
           aria-expanded={isOpen}

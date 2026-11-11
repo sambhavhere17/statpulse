@@ -1,12 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Manrope } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { SiteShell } from "@/components/layout/site-shell";
 import { AnalyticsConsent } from "@/components/layout/analytics-consent";
 import { SiteJsonLd } from "@/components/layout/site-json-ld";
 import { siteConfig } from "@/config/site";
 import "./globals.css";
 
-const manrope = Manrope({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-manrope",
   display: "swap",
@@ -49,7 +49,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={manrope.variable + " " + inter.variable}>
+      <body className={jakarta.variable + " " + inter.variable}>
         <SiteShell>{children}</SiteShell>
         <AnalyticsConsent />
         <SiteJsonLd />
