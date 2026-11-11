@@ -1,0 +1,555 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap");
+
+/* ========================================================================= */
+/* STATPULSE ABOUT PAGE STYLING                                              */
+/* ========================================================================= */
+
+.statpulse-about-page {
+  --color-dark: #0c1a19;
+  --color-mint: #3ddbc4;
+  --color-light: #f5f8f7;
+  --color-card-border: #d5e0de;
+  --color-teal-label: #0b6f64;
+  --color-soft-teal: #e3eeec;
+  --color-text-dark: #0c1a19;
+  --color-text-muted: #4a5c59;
+
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--color-text-dark);
+  background-color: var(--color-light);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.about-container {
+  width: 100%;
+  max-width: 1160px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+/* ========================================================================= */
+/* 1. HERO SECTION                                                           */
+/* ========================================================================= */
+.about-hero {
+  background-color: var(--color-dark);
+  color: #ffffff;
+  padding-top: clamp(4.5rem, 8vw, 7.5rem);
+  padding-bottom: 2rem;
+  position: relative;
+  text-align: center;
+}
+
+.about-hero-content {
+  max-width: 860px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  animation: fadeUp 0.6s ease-out;
+}
+
+.about-hero-tag {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-mint);
+  background: rgba(61, 219, 196, 0.1);
+  border: 1px solid rgba(61, 219, 196, 0.28);
+  padding: 0.35rem 0.95rem;
+  border-radius: 9999px;
+}
+
+.about-hero-heading {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.about-hero-subtext {
+  font-size: clamp(1.05rem, 2vw, 1.22rem);
+  color: #b2c5c2;
+  max-width: 760px;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.pulse-line-wrapper {
+  width: 100%;
+  margin-top: 3.5rem;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.pulse-line-svg {
+  width: 100%;
+  height: 70px;
+  display: block;
+  filter: drop-shadow(0 0 6px rgba(61, 219, 196, 0.45));
+}
+
+/* ========================================================================= */
+/* 2. FOUNDER STORY SECTION                                                  */
+/* ========================================================================= */
+.about-founder-section {
+  padding-block: clamp(4rem, 7vw, 6.5rem);
+  background-color: var(--color-light);
+}
+
+.about-founder-grid {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: clamp(2.5rem, 5vw, 4.5rem);
+  align-items: start;
+}
+
+.founder-card {
+  background: #ffffff;
+  border: 1px solid var(--color-card-border);
+  border-radius: 24px;
+  padding: 2.25rem;
+  box-shadow: 0 4px 20px rgba(12, 26, 25, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.founder-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(12, 26, 25, 0.08);
+}
+
+.founder-avatar-box {
+  width: 96px;
+  height: 96px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #0c1a19 0%, #16302e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  border: 2px solid var(--color-mint);
+  box-shadow: 0 6px 16px rgba(61, 219, 196, 0.25);
+}
+
+.founder-initials {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--color-mint);
+  letter-spacing: -0.02em;
+}
+
+.founder-meta {
+  margin-bottom: 1.25rem;
+}
+
+.founder-name {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin: 0 0 0.25rem 0;
+}
+
+.founder-role {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-teal-label);
+  margin: 0;
+}
+
+.founder-divider {
+  border: none;
+  height: 1px;
+  background: var(--color-card-border);
+  margin-block: 1.25rem;
+}
+
+.founder-facts-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+}
+
+.founder-facts-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.92rem;
+  color: var(--color-text-dark);
+  line-height: 1.5;
+}
+
+.fact-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.founder-story-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.section-label {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-teal-label);
+  display: block;
+}
+
+.section-title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(1.9rem, 3.5vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  color: var(--color-dark);
+  margin: 0;
+}
+
+.story-paragraphs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+.story-paragraphs p {
+  margin: 0;
+}
+
+/* ========================================================================= */
+/* 3. NUMBERS STRIP                                                          */
+/* ========================================================================= */
+.about-numbers-section {
+  background-color: var(--color-dark);
+  padding-block: clamp(3.5rem, 5vw, 5rem);
+}
+
+.numbers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.number-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(61, 219, 196, 0.2);
+  border-radius: 22px;
+  padding: 2.25rem 1.75rem;
+  text-align: center;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.number-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-mint);
+}
+
+.number-stat {
+  display: block;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(2.8rem, 5vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--color-mint);
+  margin-bottom: 0.6rem;
+}
+
+.number-caption {
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: #c0d4d1;
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* ========================================================================= */
+/* 4. WHAT WE DO                                                             */
+/* ========================================================================= */
+.about-what-we-do-section {
+  padding-block: clamp(4.5rem, 7vw, 6.5rem);
+  background-color: #ffffff;
+}
+
+.section-header-centered {
+  text-align: center;
+  max-width: 680px;
+  margin-inline: auto;
+  margin-bottom: 3.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.what-we-do-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.service-feature-card {
+  background: #ffffff;
+  border: 1px solid var(--color-card-border);
+  border-radius: 20px;
+  padding: 2rem 1.75rem;
+  box-shadow: 0 4px 16px rgba(12, 26, 25, 0.03);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.service-feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(12, 26, 25, 0.08);
+  border-color: var(--color-mint);
+}
+
+.service-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(11, 111, 100, 0.09);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.35rem;
+}
+
+.service-icon-box svg {
+  width: 24px;
+  height: 24px;
+}
+
+.service-title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin: 0 0 0.5rem 0;
+}
+
+.service-text {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ========================================================================= */
+/* 5. WHAT WE BELIEVE                                                        */
+/* ========================================================================= */
+.about-belief-section {
+  padding-block: clamp(3rem, 5vw, 5rem);
+  background-color: var(--color-light);
+}
+
+.belief-panel {
+  background-color: var(--color-soft-teal);
+  border: 1px solid #c9dedb;
+  border-radius: 28px;
+  padding: clamp(2.5rem, 5vw, 4.25rem);
+  text-align: center;
+  max-width: 980px;
+  margin-inline: auto;
+  box-shadow: 0 8px 30px rgba(11, 111, 100, 0.06);
+}
+
+.belief-quote {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(1.6rem, 3.2vw, 2.35rem);
+  font-weight: 700;
+  color: var(--color-dark);
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  margin: 1rem 0 1.25rem 0;
+}
+
+.belief-support {
+  font-size: clamp(1.02rem, 1.8vw, 1.15rem);
+  color: #27403c;
+  max-width: 720px;
+  margin-inline: auto;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+/* ========================================================================= */
+/* 6. TEAM SECTION                                                           */
+/* ========================================================================= */
+.about-team-section {
+  padding-block: clamp(4.5rem, 7vw, 6.5rem);
+  background-color: #ffffff;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.team-card {
+  background: var(--color-light);
+  border: 1px solid var(--color-card-border);
+  border-radius: 20px;
+  padding: 1.75rem 1.5rem;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(12, 26, 25, 0.06);
+}
+
+.team-image-box {
+  width: 84px;
+  height: 84px;
+  border-radius: 18px;
+  background: #e4ebe9;
+  margin-inline: auto;
+  margin-bottom: 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed var(--color-teal-label);
+}
+
+.team-placeholder-icon {
+  width: 36px;
+  height: 36px;
+  opacity: 0.7;
+}
+
+.team-name {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin: 0 0 0.35rem 0;
+}
+
+.team-role {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--color-teal-label);
+  margin: 0;
+}
+
+/* ========================================================================= */
+/* 7. CLOSING CTA                                                            */
+/* ========================================================================= */
+.about-cta-section {
+  background-color: var(--color-dark);
+  color: #ffffff;
+  padding-block: clamp(4.5rem, 8vw, 7rem);
+  text-align: center;
+}
+
+.about-cta-inner {
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.about-cta-heading {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.about-cta-text {
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  color: #b2c5c2;
+  line-height: 1.6;
+  margin: 0 0 1rem 0;
+}
+
+.mint-pill-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.75rem 2.25rem;
+  background-color: var(--color-mint);
+  color: var(--color-dark);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 9999px;
+  box-shadow: 0 4px 18px rgba(61, 219, 196, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.mint-pill-button:hover {
+  background-color: #55e6d1;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(61, 219, 196, 0.5);
+}
+
+.mint-pill-button:active {
+  transform: translateY(0);
+}
+
+/* ========================================================================= */
+/* RESPONSIVE & ACCESSIBILITY BREAKPOINTS                                    */
+/* ========================================================================= */
+@media (max-width: 860px) {
+  .about-founder-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .founder-card {
+    max-width: 480px;
+    margin-inline: auto;
+    width: 100%;
+  }
+
+  .numbers-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
