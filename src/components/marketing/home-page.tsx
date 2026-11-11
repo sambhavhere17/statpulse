@@ -16,7 +16,7 @@ import {
 import { Accordion } from "@/components/ui/accordion";
 import { RevenueChart, CategoryChart } from "@/components/charts/analytics-charts";
 import { ButtonLink } from "@/components/ui/button-link";
-import { CheckList, IconTile } from "@/components/ui/icon-tile";
+import { CheckList } from "@/components/ui/icon-tile";
 import { SectionHeader } from "@/components/ui/section-header";
 import { siteConfig, pricingFootnote } from "@/config/site";
 import { industries } from "@/content/industries";
