@@ -38,7 +38,7 @@ export default async function SolutionPage({ params }: PageProps) {
           <article className="detail-card"><p className="eyebrow">ILLUSTRATIVE KPIS</p><h2>Possible measures</h2><div className="kpi-tags">{industry.kpis.map((item) => <span key={item}>{item}</span>)}</div><p className="synthetic-note">These examples are illustrative; a KPI should fit the goal and the data available.</p></article>
         </div>
       </section>
-      <section className="section section-cream"><div className="container-site detail-card"><p className="eyebrow">EXAMPLE DASHBOARD SCOPE</p><h2>A starting point to shape together</h2><CheckList items={industry.bullets} /><p>Any data model, refresh schedule, and delivery format would be agreed during discovery.</p><ButtonLink arrow href="/dashboard-demo">Explore the sample dashboard</ButtonLink></div></section>
+      <section className="section section-cream"><div className="container-site detail-card"><p className="eyebrow">EXAMPLE DASHBOARD SCOPE</p><h2>A starting point to shape together</h2><CheckList items={industry.bullets} /><p>Any data model, refresh schedule, and delivery format would be agreed during discovery.</p><ButtonLink arrow href="/contact">Discuss your requirements</ButtonLink></div></section>
     </>
   );
 }

@@ -9,7 +9,6 @@ StatPulse Analytics is a modern, high-performance business intelligence and data
 - **Modern Brand & Visual Identity:** Polished frosted-glass navigation, responsive layout, accessible typography, and high-impact analytics visual components.
 - **Interactive Reporting ROI Calculator:** Real-time calculator estimating annual hours and operational budget saved by automating spreadsheets.
 - **Dedicated Consultation Booking System (`/book`):** Direct intake and scheduling interface with structured agendas and flexible calendar fallbacks.
-- **Live Synthetic Demo Dashboard (`/dashboard-demo`):** Interactive dashboard featuring Sales, Marketing, Operations, and Customer Retention & LTV analytics views with 1-click CSV data export.
 - **Expanded Portfolio & Case Studies (`/portfolio`):** Deep-dive case studies covering e-commerce sales, operations KPI hierarchy, marketing attribution, cohort churn analysis, and supply chain inventory health.
 - **Secure Backend & Admin Portal (`/admin/leads`):** Built-in Supabase authentication, role-based access control, Redis rate limiting, Turnstile anti-bot verification, and lead management.
 

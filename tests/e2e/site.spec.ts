@@ -1,15 +1,10 @@
 import { expect, test } from "@playwright/test";
 
-test("home, navigation, and dashboard demo are usable", async ({ page }) => {
+test("home and navigation are usable", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("heading", { name: /Turn Your Business Data Into Your Next/i })).toBeVisible();
-  await expect(page.getByText("Demo Data", { exact: true }).first()).toBeVisible();
-  await page.getByRole("link", { name: /Live Dashboard Demo/i }).click();
-  await expect(page.getByRole("heading", { name: /Explore a sample business dashboard/i })).toBeVisible();
-  await page.getByRole("tab", { name: "Marketing Performance" }).click();
-  await expect(page.getByText("Attributed Revenue", { exact: true })).toBeVisible();
-  await page.getByLabel("Date range").selectOption("3");
-  await expect(page.getByLabel("Date range")).toHaveValue("3");
+  await page.getByRole("link", { name: "Contact" }).click();
+  await expect(page.getByRole("heading", { name: /Book a Free Consultation/i })).toBeVisible();
 });
 
 test("contact form reports an unconfigured backend instead of false success", async ({ page }) => {

@@ -43,7 +43,6 @@ export function Footer() {
             items={[
               { label: "About", href: "/about" },
               { label: "Portfolio", href: "/portfolio" },
-              { label: "Live Dashboard Demo", href: "/dashboard-demo" },
               { label: "Contact", href: "/contact" },
               { label: "Privacy Policy", href: "/privacy" },
             ]}
