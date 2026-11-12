@@ -7,7 +7,9 @@ import {
   FileText,
   Gauge,
   House,
+  RefreshCw,
   Settings,
+  ShieldCheck,
   TrendingUp,
   Users,
   Workflow,
@@ -49,6 +51,13 @@ const matrixProducts = [
     image: "/images/organization-result-matrix.png",
   },
 ];
+
+const packageIcons = {
+  "data-health-check": ShieldCheck,
+  "business-dashboard": BarChart3,
+  "reporting-automation": RefreshCw,
+  "monthly-analytics-partner": Users,
+} as const;
 
 const steps = [
   ["Discover", "Understand the business problem, goals, and data sources."],
@@ -279,18 +288,20 @@ export function HomePage() {
             title="Clear packages, honest pricing"
           />
           <div className="pricing-grid">
-            {siteConfig.packages.map((service) => (
-              <article className={("popular" in service && service.popular) ? "price-card price-card--popular" : "price-card"} key={service.slug}>
+            {siteConfig.packages.map((service) => {
+              const PackageIcon = packageIcons[service.slug];
+              return <article className={("popular" in service && service.popular) ? "price-card price-card--popular" : "price-card"} key={service.slug}>
                 {("popular" in service && service.popular) && <span className="popular-badge">MOST POPULAR</span>}
+                <div className="price-card-top"><span className="price-icon"><PackageIcon aria-hidden="true" size={23} strokeWidth={1.9} /></span></div>
                 <h3>{service.name}</h3>
                 <p className="price-description">{service.description}</p>
-                <div className="price"><strong>{service.price}</strong><span>{service.cadence}</span></div>
+                <div className="price"><span className="price-label">{service.cadence}</span><strong>{service.price}</strong></div>
                 <CheckList items={service.deliverables} />
                 <ButtonLink arrow className="price-button" href={"/contact?service=" + service.slug} variant={("popular" in service && service.popular) ? "primary" : "secondary"}>
-                  Get Started
+                  Explore service
                 </ButtonLink>
-              </article>
-            ))}
+              </article>;
+            })}
           </div>
           <p className="pricing-footnote">{pricingFootnote}</p>
         </div>
