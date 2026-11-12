@@ -3,7 +3,6 @@ import {
   ArrowRight,
   ArrowUpRight,
   BarChart3,
-  FileSpreadsheet,
   FileText,
   Gauge,
   House,
@@ -212,7 +211,6 @@ export function HomePage() {
               </article>
             ))}
           </div>
-          <p className="tools-note"><FileSpreadsheet aria-hidden="true" size={17} /> Looker Studio reports can be built on Google Sheets and shared or embedded on your website. We can also build in Power BI and Excel.</p>
         </div>
       </section>
 
