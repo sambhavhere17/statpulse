@@ -4,7 +4,16 @@ import { Logo } from "@/components/ui/logo";
 import { ButtonLink } from "@/components/ui/button-link";
 import { siteConfig } from "@/config/site";
 
-const serviceLinks = [{ label: "Video Editing", href: "/services" }, { label: "Content Writing", href: "/services" }, { label: "Tech Solutions", href: "/services" }];
+const serviceLinks = siteConfig.packages.map((item) => ({
+  label: item.name,
+  href: "/services/" + item.slug,
+}));
+const solutionLinks = [
+  { label: "E-commerce & D2C", href: "/solutions/ecommerce" },
+  { label: "Small & Medium Businesses", href: "/solutions/small-business" },
+  { label: "Marketing Agencies", href: "/solutions/marketing-agencies" },
+  { label: "Manufacturing & Operations", href: "/solutions/manufacturing" },
+];
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -19,20 +28,23 @@ export function Footer() {
           <div className="footer-brand">
             <Logo variant="dark" />
             <p>
-              Managed delivery for business work that needs to be clear, consistent, and on time.
+              We transform business data into actionable intelligence through smart dashboards,
+              AI-powered automation, and strategic analytics — helping businesses optimize costs,
+              improve efficiency, and accelerate growth.
             </p>
             <ButtonLink arrow href="/book" variant="primary">
-              Book a Free Consultation
+              Start with a free discovery consultation
             </ButtonLink>
           </div>
           <FooterColumn title="Services" items={serviceLinks} />
-          <FooterColumn title="More" items={[{ label: "Delivery Partners", href: "/delivery-partners" }, { label: "Privacy Policy", href: "/privacy" }]} />
+          <FooterColumn title="Solutions" items={solutionLinks} />
           <FooterColumn
             title="Company"
             items={[
               { label: "About", href: "/about" },
               { label: "Portfolio", href: "/portfolio" },
               { label: "Contact", href: "/contact" },
+              { label: "Privacy Policy", href: "/privacy" },
             ]}
           />
         </div>

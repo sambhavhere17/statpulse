@@ -9,12 +9,10 @@ import { TurnstileWidget } from "@/components/contact/turnstile-widget";
 
 const serviceOptions = [
   ["free-discovery-consultation", "Free Discovery Consultation"],
-  ["video-editing", "Video Editing"],
-  ["content-writing", "Content Writing"],
-  ["tech-solutions", "Tech Solutions"],
-  ["ai-solutions", "AI Solutions"],
-  ["marketing", "Marketing"],
-  ["analytics-dashboards", "Analytics Dashboards"],
+  ["data-health-check", "Data Health Check"],
+  ["business-dashboard", "Business Dashboard"],
+  ["reporting-automation", "Reporting Automation"],
+  ["monthly-analytics-partner", "Monthly Analytics Partner"],
 ];
 
 type ContactFormProps = { defaultService?: string };

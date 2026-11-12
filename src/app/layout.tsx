@@ -23,19 +23,19 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: siteConfig.siteUrl ? new URL(siteConfig.siteUrl) : undefined,
   title: {
-    default: "StatPulse | Managed Delivery",
-    template: "%s | StatPulse",
+    default: "StatPulse Analytics | Business Intelligence & Data Analytics",
+    template: "%s | StatPulse Analytics",
   },
   description: siteConfig.description,
   openGraph: {
     type: "website",
     siteName: siteConfig.name,
-    title: "StatPulse | Managed Video Editing",
+    title: "StatPulse Analytics | Business Intelligence & Data Analytics",
     description: siteConfig.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: "StatPulse | Managed Video Editing",
+    title: "StatPulse Analytics | Business Intelligence & Data Analytics",
     description: siteConfig.description,
   },
 };
