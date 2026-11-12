@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import { HomePage } from "@/components/marketing/home-page";
 
 export const metadata: Metadata = {
-  title: "StatPulse Analytics | Business Intelligence & Data Analytics",
-  description:
-    "Transform business data into actionable insights with StatPulse Analytics. Explore Power BI, Looker Studio and Excel dashboards, reporting automation, and KPI analytics.",
+  title: "Managed Video Editing Services for Businesses",
+  description: "StatPulse delivers managed video editing for businesses, from requirement to final files.",
   alternates: { canonical: "/" },
 };
 
