@@ -1,7 +1,6 @@
 import Link from "next/link";
 import {
   ArrowRight,
-  ArrowUpRight,
   BarChart3,
   FileText,
   Gauge,
@@ -235,36 +234,24 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="section section-cream">
+      <section className="section section-cream" id="case-studies">
         <div className="container-site">
           <SectionHeader
             align="center"
-            description="Representative demo projects built with synthetic data — the same structure we apply to real client work."
-            eyebrow="PORTFOLIO"
-            title="Demonstrating the power of data"
+            eyebrow="CASE STUDIES"
+            title="Data systems built around real business questions"
           />
           <div className="project-grid">
-            {projects.slice(0, 3).map((project, index) => (
+            {projects.map((project) => (
               <article className="project-card" key={project.slug}>
-                <div className={"project-preview project-preview--" + project.accent}>
-                  {"image" in project && (
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="project-cover-img"
-                      loading="lazy"
-                    />
-                  )}
-                  <div className="project-preview-top"><span>Demo Project — Synthetic Data</span><ArrowUpRight aria-hidden="true" size={16} /></div>
-                  {index === 0 ? <RevenueChart compact /> : <ProjectBars seed={index + 2} />}
-                </div>
+                <img src={project.image} alt={project.title + " dashboard"} className="project-cover-img" loading="lazy" />
                 <div className="project-card-body">
                   <span className="project-category">{project.category}</span>
                   <h3>{project.title}</h3>
                   <p><strong>Problem</strong> {project.problem}</p>
                   <p><strong>Approach</strong> {project.approach}</p>
                   <CheckList items={project.insights} />
-                  <Link className="card-link" href={"/portfolio/" + project.slug}>View Case Study <ArrowRight aria-hidden="true" size={16} /></Link>
+                  <Link className="card-link project-case-link" href={"/portfolio/" + project.slug}>View Case Study <ArrowRight aria-hidden="true" size={16} /></Link>
                 </div>
               </article>
             ))}
@@ -331,13 +318,3 @@ export function HomePage() {
   );
 }
 
-function ProjectBars({ seed }: { seed: number }) {
-  const heights = [56, 82, 66, 91, 74, 62, 88, 71];
-  return (
-    <div aria-label="Business performance chart" className="project-bars" role="img">
-      {heights.map((height, index) => (
-        <span key={index} style={{ height: Math.max(22, height - ((index + seed) % 3) * 7) + "%" }} />
-      ))}
-    </div>
-  );
-}
