@@ -1,8 +1,8 @@
 export const siteConfig = {
-  name: "StatPulse",
-  shortName: "StatPulse",
-  tagline: "Managed delivery, end to end.",
-  description: "StatPulse delivers managed video editing services for businesses, with one point of contact from brief to final delivery.",
+  name: "StatPulse 360",
+  shortName: "StatPulse 360",
+  tagline: "Managed project delivery for businesses.",
+  description: "StatPulse 360 | StatPulse.Delivery, managed project delivery for businesses.",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "",
   bookingUrl: process.env.NEXT_PUBLIC_BOOKING_URL ?? "",
   contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "",
@@ -11,10 +11,9 @@ export const siteConfig = {
   analyticsId: process.env.NEXT_PUBLIC_GA_ID ?? "",
   copyrightStartYear: 2026,
   navigation: [
-    { label: "Home", href: "/" },
     { label: "Services", href: "/services" },
-    { label: "Portfolio", href: "/portfolio" },
-    { label: "About", href: "/about" },
+    { label: "Reviews", href: "/reviews" },
+    { label: "Team", href: "/team" },
     { label: "Contact", href: "/contact" },
   ],
   packages: [

@@ -60,7 +60,7 @@ export function Logo({ variant = "dark", href = "/", className = "" }: LogoProps
       </svg>
       <span className="brand-words">
         <span className="brand-name">
-          StatPulse<span className="brand-dot">.</span>
+          StatPulse 360<span className="brand-dot">.</span>
         </span>
         <span className="brand-subtitle">DELIVERY</span>
       </span>
