@@ -3,7 +3,6 @@ import {
   ArrowRight,
   ArrowUpRight,
   BarChart3,
-  CircleHelp,
   FileSpreadsheet,
   FileText,
   Gauge,
@@ -303,13 +302,7 @@ export function HomePage() {
             <SectionHeader
               eyebrow="FAQ"
               title="Questions before getting started?"
-              description="A few practical details about services, data, timelines, and working together."
             />
-            <div className="faq-contact-card">
-              <CircleHelp aria-hidden="true" size={22} />
-              <p>Have a question that is specific to your data or reporting setup?</p>
-              <Link href="/contact">Tell us about it <ArrowRight aria-hidden="true" size={15} /></Link>
-            </div>
           </div>
           <Accordion items={siteConfig.faq} />
         </div>
