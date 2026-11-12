@@ -59,10 +59,11 @@ const packageIcons = {
 } as const;
 
 const steps = [
-  ["Discover", "Understand the business problem, goals, and data sources."],
-  ["Analyze", "Clean, organize, and analyze available data."],
-  ["Visualize", "Build dashboards, reports, and KPI tracking solutions."],
-  ["Optimize", "Explain findings and identify practical next steps."],
+  ["Discover", "We learn your business goals, challenges, and data sources."],
+  ["Define KPIs", "We agree on the metrics that matter and how to measure them."],
+  ["Build", "We clean your data and build dashboards and reports."],
+  ["Automate", "Refreshes, scheduled reports, and alerts run on their own."],
+  ["Support & Optimize", "We walk your team through it and keep improving."],
 ];
 
 export function HomePage() {
