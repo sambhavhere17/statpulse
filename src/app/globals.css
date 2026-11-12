@@ -1348,6 +1348,57 @@ svg {
   margin-top: 1rem;
 }
 
+/* Interactive savings calculator */
+.roi-calculator-card {
+  overflow: hidden;
+  border: 1px solid #f0d9c1;
+  border-radius: 1.5rem;
+  padding: clamp(1.5rem, 4vw, 3.25rem);
+  background: linear-gradient(135deg, #fffdfb 0%, #fff3e7 100%);
+  box-shadow: 0 20px 50px rgb(10 31 51 / 0.07);
+}
+
+.roi-card-header { max-width: 790px; margin-bottom: 2rem; }
+.badge-pill, .results-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  border-radius: 999px;
+  padding: .42rem .72rem;
+  background: #fff0dd;
+  color: #a84909;
+  font-size: .75rem;
+  font-weight: 800;
+}
+.roi-card-header h2 { max-width: 760px; margin: .85rem 0 .6rem; color: var(--charcoal); font-size: clamp(1.75rem, 3.1vw, 2.7rem); line-height: 1.12; letter-spacing: -.04em; }
+.roi-card-header p { max-width: 710px; margin: 0; color: var(--body-gray); line-height: 1.65; }
+.roi-grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: clamp(1.25rem, 3vw, 2rem); align-items: stretch; }
+.roi-controls { border: 1px solid #eadbcf; border-radius: 1rem; padding: clamp(1.2rem, 3vw, 2rem); background: rgb(255 255 255 / .76); }
+.slider-group + .slider-group { margin-top: 1.55rem; padding-top: 1.55rem; border-top: 1px solid #eee2d7; }
+.slider-label { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; color: #374151; font-size: .93rem; }
+.slider-label strong { color: var(--charcoal); font-size: .92rem; white-space: nowrap; }
+.roi-slider { width: 100%; height: .42rem; margin: 1rem 0 .42rem; accent-color: var(--orange); cursor: pointer; }
+.roi-slider::-webkit-slider-thumb { width: 1.1rem; height: 1.1rem; border: 3px solid #fff; border-radius: 50%; background: var(--orange); box-shadow: 0 2px 5px rgb(10 31 51 / .2); -webkit-appearance: none; }
+.roi-slider::-moz-range-thumb { width: .9rem; height: .9rem; border: 3px solid #fff; border-radius: 50%; background: var(--orange); box-shadow: 0 2px 5px rgb(10 31 51 / .2); }
+.slider-ticks { display: flex; justify-content: space-between; color: #7a8490; font-size: .72rem; }
+.roi-note { display: flex; gap: .7rem; margin-top: 1.8rem; border-left: 3px solid var(--orange); border-radius: .35rem; padding: .8rem .9rem; background: #fff5eb; color: #4b5563; font-size: .85rem; line-height: 1.55; }
+.roi-note svg { flex: 0 0 auto; margin-top: .05rem; }
+.roi-results-box { display: flex; flex-direction: column; border-radius: 1rem; padding: clamp(1.3rem, 3vw, 2rem); background: linear-gradient(145deg, #0a1f33, #173b59); color: #fff; box-shadow: 0 16px 32px rgb(10 31 51 / .18); }
+.roi-results-box .results-badge { align-self: flex-start; background: rgb(255 255 255 / .1); color: #ffd39a; }
+.results-metric-primary { margin: 1.5rem 0; }.metric-caption, .metric-subtext { display: block; color: #cbd8e5; font-size: .82rem; }.metric-big-number { display: block; margin: .35rem 0; color: #fff; font-size: clamp(2.2rem, 4vw, 3.45rem); letter-spacing: -.055em; line-height: 1; }.metric-subtext { line-height: 1.45; }
+.results-stats-row { display: grid; grid-template-columns: 1fr 1fr; gap: .7rem; margin-top: auto; }.result-stat-tile { display: flex; gap: .55rem; align-items: flex-start; border: 1px solid rgb(255 255 255 / .12); border-radius: .7rem; padding: .8rem; background: rgb(255 255 255 / .07); }.result-stat-tile svg { flex: 0 0 auto; }.result-stat-tile strong, .result-stat-tile span { display: block; }.result-stat-tile strong { color: #fff; font-size: .9rem; }.result-stat-tile span { margin-top: .15rem; color: #cbd8e5; font-size: .7rem; }
+.results-cta { margin-top: 1.35rem; }.results-cta .button { width: 100%; justify-content: center; }.results-guarantee { margin: .75rem 0 0; color: #cbd8e5; font-size: .67rem; line-height: 1.45; }
+
+@media (max-width: 760px) {
+  .roi-grid { grid-template-columns: 1fr; }
+  .roi-card-header { margin-bottom: 1.25rem; }
+  .slider-label { align-items: flex-start; flex-direction: column; gap: .25rem; }
+}
+
+@media (max-width: 420px) {
+  .results-stats-row { grid-template-columns: 1fr; }
+}
+
 .tools-note {
   display: flex;
   align-items: center;
