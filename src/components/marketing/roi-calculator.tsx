@@ -50,10 +50,6 @@ export function RoiCalculator() {
           <span>Interactive Savings Calculator</span>
         </div>
         <h2>How much time & budget does manual reporting cost your team?</h2>
-        <p>
-          Drag the sliders below to estimate the productivity and cost gains your
-          business can unlock by standardizing on automated dashboards.
-        </p>
       </div>
 
       <div className="roi-grid">
@@ -167,7 +163,7 @@ export function RoiCalculator() {
 
           <div className="results-cta">
             <Link
-              href={`/book?service=reporting-automation&hours=${calculations.hoursSavedAnnual}`}
+              href={`/contact?service=reporting-automation&hours=${calculations.hoursSavedAnnual}`}
               className="button button--primary w-full"
             >
               Automate Your Reporting <ArrowRight size={16} />
