@@ -37,10 +37,11 @@ export async function checkLeadRateLimit(ipHash: string) {
 
 export function toLeadRecord(input: LeadInput, ipHash: string, userAgent: string | null) {
   return {
-    name: input.name,
+    name: input.name || null,
     email: input.email.toLowerCase(),
-    service: input.service,
-    message: input.message,
+    phone: input.phoneCountryCode + " " + input.phone,
+    service: input.service || null,
+    message: input.message || null,
     source_page: input.sourcePage,
     ip_hash: ipHash,
     user_agent: userAgent,

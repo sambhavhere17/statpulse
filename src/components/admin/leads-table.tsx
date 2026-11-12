@@ -6,10 +6,11 @@ import { Download, Search, X } from "lucide-react";
 export type LeadRow = {
   id: string;
   created_at: string;
-  name: string;
+  name: string | null;
   email: string;
-  service: string;
-  message: string;
+  phone: string;
+  service: string | null;
+  message: string | null;
   status: "new" | "contacted" | "qualified" | "closed";
 };
 
@@ -34,7 +35,7 @@ export function LeadsTable({ initialLeads }: { initialLeads: LeadRow[] }) {
     const search = query.trim().toLowerCase();
     return leads.filter((lead) => {
       const statusMatches = status === "all" || lead.status === status;
-      const queryMatches = !search || [lead.name, lead.email, lead.service, lead.message].some((value) => value.toLowerCase().includes(search));
+      const queryMatches = !search || [lead.name, lead.email, lead.phone, lead.service, lead.message].some((value) => (value ?? "").toLowerCase().includes(search));
       return statusMatches && queryMatches;
     });
   }, [leads, query, status]);
@@ -64,8 +65,8 @@ export function LeadsTable({ initialLeads }: { initialLeads: LeadRow[] }) {
 
   function exportCsv() {
     const rows = [
-      ["Created", "Name", "Email", "Service", "Status", "Message"],
-      ...filtered.map((lead) => [lead.created_at, lead.name, lead.email, lead.service, lead.status, lead.message]),
+      ["Created", "Name", "Email", "Phone", "Service", "Status", "Message"],
+      ...filtered.map((lead) => [lead.created_at, lead.name ?? "", lead.email, lead.phone, lead.service ?? "", lead.status, lead.message ?? ""]),
     ];
     const csv = rows.map((row) => row.map(csvCell).join(",")).join("\r\n");
     const url = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }));
@@ -91,10 +92,10 @@ export function LeadsTable({ initialLeads }: { initialLeads: LeadRow[] }) {
             {pageLeads.map((lead) => (
               <tr key={lead.id}>
                 <td>{new Date(lead.created_at).toLocaleDateString()}</td>
-                <td><button className="lead-name-button" onClick={() => setSelected(lead)} type="button"><strong>{lead.name}</strong><span>{lead.email}</span></button></td>
-                <td>{lead.service}</td>
-                <td><select aria-label={"Status for " + lead.name} disabled={busyId === lead.id} onChange={(event) => updateStatus(lead.id, event.target.value as LeadRow["status"])} value={lead.status}>{statuses.map((item) => <option key={item} value={item}>{item}</option>)}</select></td>
-                <td className="lead-message-cell"><button onClick={() => setSelected(lead)} type="button">{lead.message}</button></td>
+                <td><button className="lead-name-button" onClick={() => setSelected(lead)} type="button"><strong>{lead.name || "Not provided"}</strong><span>{lead.email}</span></button></td>
+                <td>{lead.service || "Not provided"}</td>
+                <td><select aria-label={"Status for " + (lead.name || lead.email)} disabled={busyId === lead.id} onChange={(event) => updateStatus(lead.id, event.target.value as LeadRow["status"])} value={lead.status}>{statuses.map((item) => <option key={item} value={item}>{item}</option>)}</select></td>
+                <td className="lead-message-cell"><button onClick={() => setSelected(lead)} type="button">{lead.message || "Not provided"}</button></td>
               </tr>
             ))}
             {pageLeads.length === 0 && <tr><td className="empty-leads" colSpan={5}>No leads match these filters.</td></tr>}
@@ -108,8 +109,8 @@ export function LeadsTable({ initialLeads }: { initialLeads: LeadRow[] }) {
       {selected && (
         <div className="lead-drawer-backdrop" onClick={() => setSelected(null)}>
           <section aria-labelledby="lead-drawer-title" aria-modal="true" className="lead-drawer" onClick={(event) => event.stopPropagation()} role="dialog">
-            <div className="drawer-heading"><div><p className="eyebrow">LEAD DETAIL</p><h2 id="lead-drawer-title">{selected.name}</h2></div><button aria-label="Close lead details" className="icon-close" onClick={() => setSelected(null)} type="button"><X size={20} /></button></div>
-            <dl><dt>Email</dt><dd><a href={"mailto:" + selected.email}>{selected.email}</a></dd><dt>Service</dt><dd>{selected.service}</dd><dt>Submitted</dt><dd>{new Date(selected.created_at).toLocaleString()}</dd><dt>Status</dt><dd>{selected.status}</dd><dt>Message</dt><dd className="drawer-message">{selected.message}</dd></dl>
+            <div className="drawer-heading"><div><p className="eyebrow">LEAD DETAIL</p><h2 id="lead-drawer-title">{selected.name || "Not provided"}</h2></div><button aria-label="Close lead details" className="icon-close" onClick={() => setSelected(null)} type="button"><X size={20} /></button></div>
+            <dl><dt>Email</dt><dd><a href={"mailto:" + selected.email}>{selected.email}</a></dd><dt>Phone</dt><dd><a href={"tel:" + selected.phone.replace(/\s/g, "")}>{selected.phone}</a></dd><dt>Service</dt><dd>{selected.service || "Not provided"}</dd><dt>Submitted</dt><dd>{new Date(selected.created_at).toLocaleString()}</dd><dt>Status</dt><dd>{selected.status}</dd><dt>Message</dt><dd className="drawer-message">{selected.message || "Not provided"}</dd></dl>
             <label className="drawer-status">Update status<select disabled={busyId === selected.id} onChange={(event) => updateStatus(selected.id, event.target.value as LeadRow["status"])} value={selected.status}>{statuses.map((item) => <option key={item} value={item}>{item}</option>)}</select></label>
           </section>
         </div>

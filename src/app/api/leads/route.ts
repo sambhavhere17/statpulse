@@ -17,11 +17,27 @@ async function verifyTurnstile(token: string, secret: string, ip: string) {
   return result.success === true;
 }
 
-async function sendLeadNotification(record: { name: string; email: string; service: string; message: string }) {
+function escapeHtml(value: string) {
+  return value.replace(/[&<>'"]/g, (character) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    "'": "&#39;",
+    '"': "&quot;",
+  })[character] ?? character);
+}
+
+async function sendLeadNotification(record: { name: string; email: string; phoneCountryCode: "+91"; phone: string; service: string; message: string }) {
   const key = process.env.RESEND_API_KEY;
   const to = process.env.LEAD_NOTIFY_EMAIL;
   const from = process.env.RESEND_FROM_EMAIL;
   if (!key || !to || !from) return;
+
+  const name = record.name || "Not provided";
+  const service = record.service || "Not provided";
+  const message = record.message || "Not provided";
+  const phone = record.phoneCountryCode + " " + record.phone;
+  const phoneLink = record.phoneCountryCode + record.phone;
 
   try {
     const response = await fetch("https://api.resend.com/emails", {
@@ -32,12 +48,20 @@ async function sendLeadNotification(record: { name: string; email: string; servi
         to,
         subject: "New StatPulse Analytics enquiry",
         text: [
-          "Name: " + record.name,
+          "Name: " + name,
           "Email: " + record.email,
-          "Service: " + record.service,
+          "Phone: " + phone,
+          "Service: " + service,
           "",
-          record.message,
+          "Message: " + message,
         ].join("\n"),
+        html: [
+          "<p><strong>Name:</strong> " + escapeHtml(name) + "</p>",
+          '<p><strong>Email:</strong> <a href="mailto:' + escapeHtml(record.email) + '">' + escapeHtml(record.email) + "</a></p>",
+          '<p><strong>Phone:</strong> <a href="tel:' + escapeHtml(phoneLink) + '">' + escapeHtml(phone) + "</a></p>",
+          "<p><strong>Service:</strong> " + escapeHtml(service) + "</p>",
+          "<p><strong>Message:</strong><br>" + escapeHtml(message).replace(/\n/g, "<br>") + "</p>",
+        ].join(""),
       }),
       cache: "no-store",
     });

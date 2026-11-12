@@ -9,13 +9,12 @@ test("home and navigation are usable", async ({ page }) => {
 
 test("contact form reports an unconfigured backend instead of false success", async ({ page }) => {
   await page.goto("/contact");
-  await page.getByLabel("Name *").fill("Test User");
   await page.getByLabel("Email *").fill("test@example.com");
-  await page.getByLabel("Message *").fill("This is a test enquiry for the StatPulse contact form.");
+  await page.getByLabel("Phone number *").fill("9876543210");
   await page.waitForTimeout(2600);
   await page.getByRole("button", { name: /Send Message/i }).click();
   await expect(page.getByRole("alert")).toContainText(/not configured|couldn’t save|couldn’t reach/i);
-  await expect(page.getByText(/Your enquiry has been saved/i)).toHaveCount(0);
+  await expect(page.getByText(/Thanks! We'll contact you within 24 hours/i)).toHaveCount(0);
 });
 
 test("admin lead inbox requires sign-in", async ({ page }) => {

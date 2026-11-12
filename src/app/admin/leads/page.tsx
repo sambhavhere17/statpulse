@@ -15,7 +15,7 @@ export default async function AdminLeadsPage() {
 
   const { data, error } = await serviceClient
     .from("leads")
-    .select("id, created_at, name, email, service, message, status")
+    .select("id, created_at, name, email, phone, service, message, status")
     .order("created_at", { ascending: false })
     .range(0, 499);
 

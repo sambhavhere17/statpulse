@@ -24,6 +24,7 @@ export function ContactForm({ defaultService = "" }: ContactFormProps) {
   const {
     register,
     handleSubmit,
+    reset,
     setError,
     formState: { errors, isSubmitting },
   } = useForm<LeadFormValues, unknown, LeadInput>({
@@ -31,7 +32,9 @@ export function ContactForm({ defaultService = "" }: ContactFormProps) {
     defaultValues: {
       name: "",
       email: "",
-      service: defaultService || "free-discovery-consultation",
+      phoneCountryCode: "+91",
+      phone: "",
+      service: defaultService,
       message: "",
       website: "",
       startedAt: 0,
@@ -48,14 +51,13 @@ export function ContactForm({ defaultService = "" }: ContactFormProps) {
     setFormStatus(null);
     const payload = {
       ...values,
-      service: values.service || "Free Discovery Consultation",
       sourcePage: window.location.pathname + window.location.search,
       startedAt,
       turnstileToken,
     };
 
     try {
-      const response = await fetch("/api/leads", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -64,8 +66,8 @@ export function ContactForm({ defaultService = "" }: ContactFormProps) {
       if (!response.ok || !result.ok) {
         if (result.fields) {
           Object.entries(result.fields).forEach(([field, messages]) => {
-            if (messages?.[0] && ["name", "email", "service", "message"].includes(field)) {
-              setError(field as "name" | "email" | "service" | "message", { message: messages[0] });
+            if (messages?.[0] && ["name", "email", "phone", "service", "message"].includes(field)) {
+              setError(field as "name" | "email" | "phone" | "service" | "message", { message: messages[0] });
             }
           });
         }
@@ -73,7 +75,21 @@ export function ContactForm({ defaultService = "" }: ContactFormProps) {
         return;
       }
 
-      setFormStatus({ kind: "success", text: "Thanks. Your enquiry has been saved, and we’ll follow up using the email you provided." });
+      reset({
+        name: "",
+        email: "",
+        phoneCountryCode: "+91",
+        phone: "",
+        service: "",
+        message: "",
+        website: "",
+        startedAt: Date.now(),
+        turnstileToken: "",
+        sourcePage: "/contact",
+      });
+      setStartedAt(Date.now());
+      setTurnstileToken("");
+      setFormStatus({ kind: "success", text: "Thanks! We'll contact you within 24 hours." });
       document.dispatchEvent(new CustomEvent("statpulse:analytics", { detail: { event: "contact_form_submitted" } }));
     } catch {
       setFormStatus({ kind: "error", text: "We couldn’t reach the contact service. Please try again later." });
@@ -90,7 +106,7 @@ export function ContactForm({ defaultService = "" }: ContactFormProps) {
       <input autoComplete="off" className="honeypot-input" id="company-site" tabIndex={-1} {...register("website")} />
 
       <div className="form-field">
-        <label htmlFor="lead-name">Name <span>*</span></label>
+        <label htmlFor="lead-name">Name <span className="field-optional">(optional)</span></label>
         <input autoComplete="name" id="lead-name" placeholder="Your name" {...register("name")} aria-invalid={Boolean(errors.name)} />
         {errors.name && <span className="field-error">{errors.name.message}</span>}
       </div>
@@ -100,15 +116,35 @@ export function ContactForm({ defaultService = "" }: ContactFormProps) {
         {errors.email && <span className="field-error">{errors.email.message}</span>}
       </div>
       <div className="form-field">
-        <label htmlFor="lead-service">Service you’re interested in</label>
+        <label htmlFor="lead-phone">Phone number <span>*</span></label>
+        <div className="phone-input-group">
+          <select aria-label="Country code" {...register("phoneCountryCode")}>
+            <option value="+91">India (+91)</option>
+          </select>
+          <input
+            autoComplete="tel-national"
+            id="lead-phone"
+            inputMode="numeric"
+            maxLength={10}
+            placeholder="10-digit phone number"
+            {...register("phone")}
+            onInput={(event) => { event.currentTarget.value = event.currentTarget.value.replace(/\D/g, "").slice(0, 10); }}
+            aria-invalid={Boolean(errors.phone)}
+          />
+        </div>
+        {errors.phone && <span className="field-error">{errors.phone.message}</span>}
+      </div>
+      <div className="form-field">
+        <label htmlFor="lead-service">Service you’re interested in <span className="field-optional">(optional)</span></label>
         <select id="lead-service" {...register("service")} aria-invalid={Boolean(errors.service)}>
-          {serviceOptions.map(([value, label]) => <option key={value || "discovery"} value={value}>{label}</option>)}
+          <option value="">Select a service</option>
+          {serviceOptions.map(([value, label]) => <option key={value} value={value}>{label}</option>)}
         </select>
         {errors.service && <span className="field-error">{errors.service.message}</span>}
       </div>
       <div className="form-field">
-        <label htmlFor="lead-message">Message <span>*</span></label>
-        <textarea id="lead-message" placeholder="What would you like to understand or improve?" rows={5} {...register("message")} aria-invalid={Boolean(errors.message)} />
+        <label htmlFor="lead-message">Message <span className="field-optional">(optional)</span></label>
+        <textarea id="lead-message" placeholder="What would you like to understand or improve? (optional)" rows={5} {...register("message")} aria-invalid={Boolean(errors.message)} />
         {errors.message && <span className="field-error">{errors.message.message}</span>}
       </div>
       <TurnstileWidget onToken={setTurnstile} />
@@ -116,7 +152,7 @@ export function ContactForm({ defaultService = "" }: ContactFormProps) {
       <button className="button button--primary form-submit" disabled={isSubmitting || startedAt === 0} type="submit">
         {isSubmitting ? <><LoaderCircle aria-hidden="true" className="spin" size={17} /> Sending…</> : <>Send Message <Send aria-hidden="true" size={16} /></>}
       </button>
-      <p className="form-consent">By submitting, you’re asking StatPulse Analytics to use these details to respond to your enquiry.</p>
+      <p className="form-consent">By submitting, you’re asking StatPulse Analytics to use these details to respond to your enquiry. By submitting, you agree to be contacted on the email and phone provided.</p>
     </form>
   );
 }

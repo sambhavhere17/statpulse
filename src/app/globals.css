@@ -2463,7 +2463,18 @@ svg {
 }
 
 .form-field label span {
-  color: #a94e00;
+  color: #b42318;
+}
+
+.form-field label .field-optional {
+  color: #747982;
+  font-weight: 500;
+}
+
+.phone-input-group {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.42fr) 1fr;
+  gap: 0.5rem;
 }
 
 .form-field input,

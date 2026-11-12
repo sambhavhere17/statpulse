@@ -5,6 +5,8 @@ import { leadSchema } from "@/lib/validation/lead";
 const validSubmission = {
   name: "  Alex Example  ",
   email: " alex@example.com ",
+  phoneCountryCode: "+91",
+  phone: "9876543210",
   service: "business-dashboard",
   message: "I want to understand our monthly sales trends.",
   sourcePage: "/contact",
@@ -20,9 +22,15 @@ describe("lead validation", () => {
     expect(parsed.email).toBe("alex@example.com");
   });
 
-  it("rejects short messages and unexpected properties", () => {
-    expect(leadSchema.safeParse({ ...validSubmission, message: "short" }).success).toBe(false);
+  it("allows optional fields to be empty and rejects unexpected properties", () => {
+    expect(leadSchema.safeParse({ ...validSubmission, name: "", service: "", message: "" }).success).toBe(true);
     expect(leadSchema.safeParse({ ...validSubmission, isAdmin: true }).success).toBe(false);
+  });
+
+  it("requires a valid Indian phone number and email address", () => {
+    expect(leadSchema.safeParse({ ...validSubmission, phone: "98765" }).success).toBe(false);
+    expect(leadSchema.safeParse({ ...validSubmission, phone: "987654321a" }).success).toBe(false);
+    expect(leadSchema.safeParse({ ...validSubmission, email: "not-an-email" }).success).toBe(false);
   });
 
   it("rejects a filled honeypot", () => {
